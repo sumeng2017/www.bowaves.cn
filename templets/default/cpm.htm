@@ -74,7 +74,7 @@
                                                     <input lay-filter="mod" type="radio" name="mod" value="id" title="单品查询" checked="">
                                                     <input lay-filter="mod" type="radio" name="mod" value="shop" title="店铺查询">
                                                     <input lay-filter="mod" type="radio" name="mod" value="all" title="全网查询">                                                    
-                                                    <input lay-filter="mod" type="radio" name="mod" value="pro" title="千人千面">
+                                                    <!--<input lay-filter="mod" type="radio" name="mod" value="pro" title="千人千面">-->
 
                                                 </div>
                                             </div>
@@ -98,20 +98,20 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="layui-inline">
-                                                    <label class="layui-form-label">云服务器</label>
-                                                    <div class="layui-input-inline">
-                                                        <select name="serv">
-                                                            <option value="">请选择省</option>
-                                                            <option value="sz" selected="">深圳</option>
-                                                            <!--                                                            <option value="gd">北京</option>
-                                                                                                                        <option value="sh">上海</option>
-                                                                                                                        <option value="gz">广州</option>                                                                
-                                                                                                                        <option value="zj">浙江</option>
-                                                                                                                        <option value="js">江苏</option>-->
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                <!--<div class="layui-inline">-->
+                                                    <!--<label class="layui-form-label">云服务器</label>-->
+                                                    <!--<div class="layui-input-inline">-->
+                                                        <!--<select name="serv">-->
+                                                            <!--<option value="">请选择省</option>-->
+                                                            <!--<option value="sz" selected="">深圳</option>-->
+                                                            <!--&lt;!&ndash;                                                            <option value="gd">北京</option>-->
+                                                                                                                        <!--<option value="sh">上海</option>-->
+                                                                                                                        <!--<option value="gz">广州</option>                                                                -->
+                                                                                                                        <!--<option value="zj">浙江</option>-->
+                                                                                                                        <!--<option value="js">江苏</option>&ndash;&gt;-->
+                                                        <!--</select>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
                                             </div>
                                             <div class="layui-form-item">
                                                 <label class="layui-form-label">关键词</label>
@@ -335,13 +335,13 @@ $(".btn-primary").attr("lay-filter","cpm_new");
                                                                         type: "post",
                                                                         dataType: "json",
                                                                         success: function (res) {
-                                                                            if (res.err === '1') {
+                                                                            if (res.success != 'success') {
                                                                                 layer.msg('查询失败，请重试！', {time: 2000, });
                                                                                 return false;
                                                                             }
 
-                                                                            var length = res.goodsdata.length;
-                                                                            // console.log(res);
+                                                                            var length = res.info.length;
+                                                                             //console.log(res);
                                                                             layer.msg('查询完成！共' + length + '个宝贝。');
                                                                             //var start_page = data.field.start_page;
                                                                             //var end_page = data.field.end_page;
@@ -372,19 +372,19 @@ $(".btn-primary").attr("lay-filter","cpm_new");
                                                                             var info = '' + so + ' ' + mod + '关键词 【' + key + '】 在前' + page_unm + '页，共' + length + '个宝贝';
                                                                             var str = '<div class="site-title"><p style="font-size: 1.3em;font-weight: bold;color: #FF5722;">' + so + '' + mod + '关键词【' + key + '】在前' + page_unm + '页，共' + length + '个宝贝</p></div>' + '<table id="showinfo" class="table-box table-sort dataTable">' + '<colgroup>' + '<col width="">' + '<col width="">' + '<col>' + '</colgroup>' + '<thead>' + '<tr>' + '<th>序号</th>' + '<th>主图</th>' + '<th>宝贝标题</th>' + '<th>价格</th>' + '<th>销量</th>' + '<th>发货地</th>' + '<th>店铺旺旺</th>' + '<th>位置</th>' + '<th>排名</th>' + '</tr> ' + '</thead>' + '<tbody>';
                                                                             for (var i = 0; i < length; i++) {
-                                                                                var name = res.goodsdata[i]['title'];
-                                                                                var thumb = res.goodsdata[i]['pic'];
+                                                                                var name = res.info[i]['goodsTitle'];
+                                                                                var thumb = res.info[i]['pic'];
                                                                                 var thumbimg = '' + thumb + '_300x300.jpg';
                                                                                 var ztcimg = '' + thumb + '_50x50.jpg';
-                                                                                var price = res.goodsdata[i]['price'];
-                                                                                var id = res.goodsdata[i]['id'];
-                                                                                var url = res.goodsdata[i]['url'];
-                                                                                var nick = res.goodsdata[i]['nick'];
-                                                                                var sale = res.goodsdata[i]['sale'];
-                                                                                var rank = res.goodsdata[i]['rank'];
-                                                                                var loc = res.goodsdata[i]['loc'];
-                                                                                var isB2c = res.goodsdata[i]['isB2c'];
-                                                                                var pm = res.goodsdata[i]['pm'];
+                                                                                var price = res.info[i]['price'];
+                                                                                var id = res.info[i]['id'];
+                                                                                var url = res.info[i]['url'];
+                                                                                var nick = res.info[i]['seller'];
+                                                                                var sale = res.info[i]['sales'];
+                                                                                var rank = res.info[i]['orderDesc'];
+                                                                                var loc = res.info[i]['from'];
+                                                                                var isB2c = res.info[i]['isB2c'];
+                                                                                var pm = '第 ' + res.info[i]['rank'] + ' 位';
 
                                                                                 var nameinfo = "<a target=\"_blank\" href=\"" + url + "\" onmouseout=\"hiddenPic();\" onmousemove=\"showimg(event,'" + thumbimg + "');\">" + name + "</a>";
                                                                                 // <img layer-src="' + thumb + '" layer-pid="" src="' + ztcimg + '" alt="'+name+'" layer-index="0">

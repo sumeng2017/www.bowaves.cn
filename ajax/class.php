@@ -1,18 +1,18 @@
 <?php
 
 
-
-function login_post($url, $cookie, $post) { 
+header("Content-Type: application/json; charset=utf-8");
+function login_post($url, $cookie, $post) {
     $curl = curl_init();//初始化curl模块 
     curl_setopt($curl, CURLOPT_URL,$url);//登录提交的地址 
     curl_setopt($curl, CURLOPT_HEADER, 0);//是否显示头信息 
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);//是否自动显示返回的信息 
     curl_setopt($curl, CURLOPT_COOKIEJAR, $cookie); //设置Cookie信息保存在指定的文件中 
     curl_setopt($curl, CURLOPT_POST,1);//post方式提交 
-    curl_setopt($curl, CURLOPT_POSTFIELDS,$post);//要提交的信息 
-    $rs=curl_exec($curl);//执行cURL 
-    curl_close($curl);//关闭cURL资源，并且释放系统资源 
-	 return $rs; 
+    curl_setopt($curl, CURLOPT_POSTFIELDS,array('data' => $post));//要提交的信息
+    $rs=curl_exec($curl);//执行cURL
+    curl_close($curl);//关闭cURL资源，并且释放系统资源
+	 return $rs;
 } 
 
 function get_content($url,$cookie) { 
@@ -29,16 +29,16 @@ function get_content($url,$cookie) {
 
 
 $post = array(
-         'username' => 'xiaoyaoahui',
-		  'password' => 'lihui508',
-		   'btn-login' =>'"icon+icon-check-circle"></I>登+录'
+         'userName' => '15558185070',
+		  'password' => 'xs654321',
+//		   'btn-login' =>'"icon+icon-check-circle"></I>登+录'
 		   );
-
+$post = json_encode($post);
 
 $md5=md5("cookie_".floor(time()/1800));
 
 //设置cookie保存路径 
-$cookie = dirname(__FILE__) . '/cache/'.$md5.'.txt'; 
+$cookie = dirname(__FILE__) . '/cache/'.$md5.'.txt';
 
 
 if(file_exists($cookie)){
@@ -50,10 +50,10 @@ else{
 
 
 //登录地址 
-$url = "http://shengyicanmou.com/login.php"; 
+$url = "http://www.qiaodalianmeng.com/login.htm";
 
 //登录后要获取信息的地址 
-$url2 = "http://shengyicanmou.com/"; 
+$url2 = "http://www.qiaodalianmeng.com/";
 //模拟登录 
 login_post($url,$cookie,$post); 
 //获取登录页的信息 
