@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>手淘流量入口生成-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}首创来源内部接口更加个性化的补单方案，提供更多的流量来源入口手淘网红集合、手淘清仓流量、中国质造、极有家 、手机钻展、淘抢购、每日好店、必买清单、亲宝贝、手淘ifashion、潮玩城，多样化补单首选。" />
+        <meta name="keywords" content="手淘流量淘口令,手淘流量入口,手淘补单,手淘网红流量,手淘清仓流量,中国质造流量,极有家流量,手机钻展流量,淘抢购流量,每日好店流量,必买清单流量,亲宝贝流量,手淘ifashion流量,潮玩城流量" />
+        <link href="/static/layui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+    </head>
+
+    <body>
+    {dede:include filename="head.htm"/} 
+  {dede:include filename="sidebar.htm"/}
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3><i class="icon icon-random"></i> 手淘流量入口生成</h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+                                        <!-- 					 		 		<div class="alert alert-warning with-icon alert-dismissable">
+                                                                                                                        <i class="icon-info-sign"></i>
+                                                                                                                        <div class="content"><h4>温馨提示：</h4><p>{dede:global.cfg_webname/}淘口令代码全部采用淘宝官方API接口生成，最近淘宝对修改代码直接生成的查得严重，请慎用非官方接口的代码。</p></div>
+                                                                                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                                                                                </div> -->
+                                        <form class="layui-form" action="">
+                                            <div class="form-group">
+                                                <label for="item_url"><i class="icon icon-link"></i> 商品链接</label>
+                                                <input type="text" class="form-control" name="item_url" onchange="checktburl(this);" placeholder="请输入淘宝（天猫）的商品URL地址" lay-verify="required">
+                                            </div>
+
+
+
+                                            <div class="layui-form">
+
+                                                <label for="channel"><i class="icon icon-random"></i> 选择流量入口</label>
+                                                <div style="margin-bottom: 20px;">
+                                                    <input type="radio" name = "channel" value="good" lay-skin="primary" title="有好货" checked="">
+                                                    <input type="radio" name = "channel" value="wanghong" lay-skin="primary" title="手淘网红集合">
+                                                    <input type="radio" name = "channel" value="qingcang" lay-skin="primary" title="手淘清仓流量">
+                                                    <input type="radio" name = "channel" value="quality" lay-skin="primary" title="中国质造">
+                                                    <input type="radio" name = "channel" value="youjia" lay-skin="primary" title="极有家">
+                                                    <input type="radio" name = "channel" value="mobile_show" lay-skin="primary" title="手机钻展">
+                                                    <input type="radio" name = "channel" value="tao_buy" lay-skin="primary" title="淘抢购">
+                                                    <input type="radio" name = "channel" value="good_shop" lay-skin="primary" title="每日好店">
+                                                    <input type="radio" name = "channel" value="buy_list" lay-skin="primary" title="必买清单">
+                                                    <input type="radio" name = "channel" value="qinbaobei" lay-skin="primary" title="亲宝贝">
+                                                    <input type="radio" name = "channel" value="ifashion" lay-skin="primary" title="手淘ifashion">
+                                                    <input type="radio" name = "channel" value="chaowan" lay-skin="primary" title="潮玩城">
+                                                    <input type="radio" name = "channel" value="tejia" lay-skin="primary" title="天天特价">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="tly">立即生成</button>                                         </form>
+                                        <div>
+                                            <h4>手淘流量入口生成 功能说明:</h4>
+                                            <p class="with-padding hl-green">首创来源内部接口更加个性化的补单方案，提供更多的流量来源入口，多样化补单首选。</p>
+   <p> <i class="icon icon-info-sign"></i> 提示：使用此功能需消耗 {dede:global.lmcx/}个 积分。VIP免积分使用！</p>               
+
+
+                                                                                    </div>
+
+                                    </div>
+
+
+                                    <div id = "data" class="col-md-6">				 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+  {dede:include filename="footer.htm"/}
+  
+  </div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script>    </body>
+</html>

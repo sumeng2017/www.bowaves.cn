@@ -1,0 +1,4 @@
+INSERT INTO `dede_member_space` VALUES('1','10','0','admin的空间','','person','','');
+INSERT INTO `dede_member_space` VALUES('2','10','0','的空间','','person','','');
+INSERT INTO `dede_member_space` VALUES('3','10','0','的空间','','person','','');
+INSERT INTO `dede_member_space` VALUES('4','10','0','的空间','','person','','');

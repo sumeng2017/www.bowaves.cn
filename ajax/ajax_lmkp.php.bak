@@ -1,0 +1,72 @@
+<?php
+
+
+$class = dirname(__FILE__) . '/class.php'; 
+
+require_once($class);
+
+$url2 = "http://shengyicanmou.com/lmkp.php"; 
+$content = get_content($url2, $cookie); 
+
+$item_url=$_POST['item_url'];
+
+
+
+
+
+$post_data = array(
+         "item_url" => $item_url
+		
+	);
+
+
+
+
+
+
+
+
+
+
+
+$header = array();
+$header[] = 'Host:shengyicanmou.com';
+$header[] = 'Origin:http://shengyicanmou.com';
+$header[] = 'Referer:http://shengyicanmou.com/ajax/ajax_lmkp.php';
+$header[] = 'Cookie:PHPSESSID=ndtoacjeugrd4dodfmbjnrknj1; user=1; Hm_lvt_75cd9b0d9743152ec049eba54f506315=1517477918,1517481421,1517829875; Hm_lpvt_75cd9b0d9743152ec049eba54f506315=1517829986';
+$header[] = 'User-Agent:Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36';
+
+    // 判断是否支持CURL
+if (!function_exists('curl_init') || !function_exists('curl_exec')) {
+        exit('您的主机不支持Curl，请开启~');
+}
+
+
+
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL,"http://shengyicanmou.com/ajax/ajax_lmkp.php");
+    curl_setopt($curl, CURLOPT_AUTOREFERER, 1);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+	 curl_setopt($curl, CURLOPT_POST, 1);
+  curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($curl, CURLOPT_HEADER, 0);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); 
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); 
+	curl_setopt($curl,CURLOPT_COOKIEFILE,$cookie); //读取cookie 
+
+    $data = curl_exec($curl);
+    curl_close($curl);
+    
+
+print_r($data);
+
+
+
+
+
+
+
+
+?>

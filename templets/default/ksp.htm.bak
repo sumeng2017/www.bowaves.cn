@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>关键词卡首屏2017最新版-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}使用任意关键词+商品链接生成卡首屏淘口令，通过淘口令进行传播，将指定的宝贝通过关键词搜索显示在手机淘宝搜索页面首屏，快速精准补单做销量，提升搜索权重。" />
+        <meta name="keywords" content="关键词卡首屏,首屏关键词卡位,任意关键词卡首屏,卡首屏淘口令,卡首屏补单" />
+        <link rel="stylesheet" type="text/css" href="/static/layui.css" >
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+    </head>
+
+    <body>
+{dede:include filename="head.htm"/}
+
+{dede:include filename="sidebar.htm"/}
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3> <i class="icon icon-flag-checkered"></i>
+                                        关键词卡首屏 <span class="label label-badge label-danger">已升级新版</span></h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+                                        <form class="layui-form" action="">
+                                            <div class="form-group">
+                                                <label for="Keyword">
+                                                    <i class="icon icon-key"></i>
+                                                    卡屏关键词 <span class="text-red">（必须使用标题中包含的词，否则卡不出来）</span>
+                                                </label>
+                                                <input type="text" class="form-control" name="Keyword" placeholder="请输入宝贝标题中包含的关键词" lay-verify="required"></div>
+
+                                            <div class="form-group">
+                                                <label for="item_url">
+                                                    <i class="icon icon-link"></i>
+                                                    商品链接
+                                                </label>
+                                                <input type="text" class="form-control" name="item_url" onchange="checktburl(this);" placeholder="请输入淘宝（天猫）的商品URL地址" lay-verify="required">
+                                            </div>
+                                            <div class="layui-form">
+                                                <label for="loc"><i class="icon icon-random"></i> 选择卡位方式</label>
+                                                <div style="margin-bottom: 20px;">
+                                                    <input type="radio" name = "loc" value="1" lay-skin="primary" title="随机卡位（较多宝贝）" checked="">
+                                                    <input type="radio" name = "loc" value="2" lay-skin="primary" title="卡第2位（较少宝贝）">
+                                                    <input type="radio" name = "loc" value="3" lay-skin="primary" title="配合魔搜卡位">
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">立即生成</button>                                         </form>
+                                        <div>
+                                            <h4>
+                                                关键词卡首屏功能说明:</h4>
+                                            <p class="with-padding hl-green">使用关键词+商品链接生成卡首屏淘口令，通过淘口令进行传播，将指定的宝贝通过关键词搜索显示在手机淘宝搜索页面首屏，快速精准补单做销量，提升关键词搜索权重。<br><br>使用技巧：卡出来之后，先加购物车，货比三家，随便拍任何一家的产品不要付款，过10分钟后，再让刷手付款自己的订单即可，最后关闭对手的。</p>
+
+  <p> <i class="icon icon-info-sign"></i> 提示：使用此功能需消耗 {dede:global.ksp/}个 积分。VIP免积分使用！</p>  
+
+                                                                                    </div>
+                                        <button type="button" class="btn btn-warning" data-width="750px" data-height="480px" data-moveable="true" data-iframe="http://player.youku.com/embed/XMzA3OTQ3Mzg1Mg==" data-toggle="modal"><i class="icon icon-play-sign"></i> 关键词卡首屏使用教程</button>
+                                    </div>
+
+                                    <div id="data" class="col-md-6">
+                                        <div class="alert alert-warning">
+                                            <p>淘宝于2017-11-22已屏蔽旧版卡首屏接口，导致卡首屏功能全面失效。</p>
+                                            <p class="text-red">{dede:global.cfg_webname/}已经在第一时间更换了卡首屏的新接口，新接口卡位是随机位置，根据关键词的权重排位，所以不一定是在首条位置。</p><p>现在即使只显示1个宝贝，只要点进去，也有效果。生意参谋【实时访客】有记录搜索关键词进店。</p>
+                                        </div>
+                                        <img src="/img/ksp_fixed.png" data-toggle="lightbox" data-caption="生意参谋【实时访客】搜索关键词">
+<!--                                        <p class="with-padding bg-warning"> <i class="icon icon-bell-alt"></i>
+                                            新手使用教程（老司机请路过~）
+                                        </p>
+                                        <iframe class="tscplayer_inline" width="100%" height="400px" src="http://player.youku.com/embed/XMzA3OTQ3Mzg1Mg==" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" __idm_frm__="2174"></iframe>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+               
+			     {dede:include filename="footer.htm"/} 
+			   
+			   </div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script>
+
+   <script>
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","ksp");
+
+}
+  },"json");
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,1214 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{dede:global.cfg_webname/}极速验号-一键验号-超级验号防作弊防P图淘口令-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}￥极速验号￥帮你解决验号耗时、无法识别买家信息真假的难题！快速、高效查询买家真实信息！淘汰传统扫码截图、录像等形式的验号方式，彻底杜绝刷手帐号信息P图改后台伪造，还原最真实的刷手帐号信息数据。" />
+        <meta name="keywords" content="{dede:global.cfg_webname/}验号,极速验号,急速验号,一键验号,免扫码验号,超级验号,防作弊验号,怎么查黑号,怎么查小号" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="layui/css/layui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+        <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+        <style>
+            .tb-rate-ico,.tb-rate-ico-bg{background:transparent url(//img.alicdn.com/tps/TB1WgeNIVXXXXb5XXXXXXXXXXXX.png) no-repeat 1000px 1000px}
+            .tb-rate-ico-bg.ico-bad,.tb-rate-ico.ico-bad{background-position:0 0}
+            .tb-rate-ico-bg.ico-neutral,.tb-rate-ico.ico-neutral{background-position:0 -50px}
+            .tb-rate-ico-bg.ico-good,.tb-rate-ico.ico-good{background-position:0 -100px}
+            .tb-rate-ico-bg.ico-shop,.tb-rate-ico.ico-shop{background-position:0 -150px}
+            .tb-rate-ico-bg.ico-seller,.tb-rate-ico.ico-seller{background-position:0 -200px}
+            .tb-rate-ico-bg.ico-buyer,.tb-rate-ico.ico-buyer{background-position:0 -250px}
+            .tb-rate-ico-bg.ico-bubble,.tb-rate-ico.ico-bubble{background-position:0 -300px}
+            .tb-rate-ico-bg.ico-feedback,.tb-rate-ico.ico-feedback{background-position:0 -350px}
+            .tb-rate-ico-bg.ico-img,.tb-rate-ico.ico-img{background-position:0 -400px}
+            .tb-rate-ico-bg.ico-img.status-disabled,.tb-rate-ico.ico-img.status-disabled,.uploader-button-disabled .tb-rate-ico-bg.ico-img,.uploader-button-disabled .tb-rate-ico.ico-img{background-position:0 -450px}
+            .tb-rate-ico-bg.ico-gift,.tb-rate-ico.ico-gift{background-position:0 -500px}
+            .tb-rate-ico-bg.ico-info,.tb-rate-ico.ico-info{background-position:0 -550px}
+            .tb-rate-ico-bg.ico-help,.tb-rate-ico.ico-help{background-position:0 -600px}
+            .tb-rate-ico-bg.ico-date,.tb-rate-ico.ico-date{background-position:0 -650px}
+            .tb-rate-ico-bg.ico-tip,.tb-rate-ico.ico-tip{background-position:0 -700px}
+            .tb-rate-ico-bg.ico-attention,.tb-rate-ico.ico-attention{background-position:0 -750px}
+            .tb-rate-ico-bg.ico-sort-by-default,.tb-rate-ico.ico-sort-by-default{background-position:0 -800px}
+            .tb-rate-ico-bg.ico-sort-by-time,.tb-rate-ico.ico-sort-by-time{background-position:0 -850px}
+            .tb-rate-ico-bg.ico-verified,.tb-rate-ico.ico-verified{background-position:0 -900px}
+            .tb-rate-ico{display:inline-block;overflow:hidden;width:20px;height:18px;vertical-align:middle}
+            .tb-rate-ico-bg{padding-left:24px;line-height:18px}
+            a.tb-rate-ico-bg,span.tb-rate-ico-bg{display:inline-block}
+        </style>
+    </head>
+
+    <body>
+
+
+{dede:include filename="head.htm"/}
+
+
+
+
+
+
+{dede:include filename="sidebar.htm"/}
+
+
+
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3><i class="icon icon-newspaper-o"></i> {dede:global.cfg_webname/}极速验号-一键验号-超级验号防作弊防P图淘口令 <span class="label label-badge label-danger">彻底杜绝刷手帐号信息P图改后台</span></h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+
+                                        <form class="layui-form" action="">
+
+                                            <div class="form-group">
+                                                <label for="nick"><i class="icon icon-user"></i> 买家旺旺号</label>
+                                               
+                                                <input type="text" class="form-control" onchange="checknick(this);" name="nick" placeholder="请输入要查询的买家旺旺号" lay-verify="required">
+                                            </div>
+                                            
+                                         <button id="go" type="submit" class="btn btn-primary btn-lg btn-block disabled" lay-submit="" lay-filter="yhpro">立即查询</button>                                     </form>
+                                        <div>
+                                            <p> <i class="icon icon-info-sign"></i> 提示：此功能仅限VIP会员使用。</p>                                        </div>
+
+                                        <div id="tklinfo">
+                                            <p><strong class="text-red"><i class="icon icon-warning-sign"></i>  请先把下面信息发给买家登记后，再进行查询。</strong></p>    
+                                            <div class="tkl" data-clipboard-action="copy" data-clipboard-target="#tkl">	
+                                                <div class="card"> 
+                                                    <div class="panel-body" style="cursor:pointer">
+                                                        <strong id="tkl" style="font-size: 14px;font-weight: bold;"><span class="text-red">￥极速验号￥</span>登记（长按复制，打开👉手机淘宝 👈按提示完成操作）</strong>
+                                                        <p class="pull-right"><i class="icon icon-copy"></i> 点击复制</p>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id = "info" class="col-md-6">
+                                        <div class="panel-group" id="accordionPanels" aria-multiselectable="true">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordionPanels" href="#collapse" class=""> <strong class="text-red">什么叫极速验号？</strong>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse" class="panel-collapse in" style="height: auto;">
+                                                    <div class="panel-body">
+                                                        <p>还在用扫码截图、录视频的这种低效的方式验号吗？<strong class="text-red">你out啦！！！</strong></p>
+                                                        <p>一天什么也没做，所有时间都花在收集验号图片、视频上了。<strong class="text-red">老板没屌你吗？？？</strong></p>
+                                                        <p>稍不留神，被刷手修改过的图蒙骗过关，导致店铺收到虚假交易的处罚。<strong class="text-red">老板没屌你吗？？？</strong></p>
+                                                        <p><strong class="text-red">参谋网￥极速验号￥帮你解决验号耗时、无法识别买家信息真假的难题！快速、高效查询买家真实信息！</strong></p>
+                                                        <p><strong class="text-red">淘汰传统扫码截图、录像等形式的验号方式，彻底杜绝刷手帐号信息P图改后台伪造，还原最真实的刷手帐号信息数据。</strong></p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="collapse2">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#info2">极速验号与传统验号有什么区别和优势？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="info2" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <table class="table table-hover table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>操作细节</th>
+                                                                    <th class="text-red">传统验号方式</th>
+                                                                    <th class="text-success">参谋网极速验号</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td>需要截图</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">不需要</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>需要传图</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">不需要</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>多个截图</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">不需要</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>担心P图作假</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">不需要</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>担心改后台</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">不需要</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>刷手觉得麻烦</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">So easy !</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>真假难辨</td>
+                                                                    <td class="text-red">是</td>
+                                                                    <td class="text-success">真实还原</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>验号途径</td>
+                                                                    <td class="text-red">N个淘口令</td>
+                                                                    <td class="text-success">1个淘口令</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>验号耗时</td>
+                                                                    <td class="text-red">至少5-20分钟</td>
+                                                                    <td class="text-success">10秒完成</td>
+                                                                </tr>
+                                                            </tbody></table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="helpinfo1">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordionPanels" href="#help1" class="">极速验号授权登录后安全吗？会不会泄漏密码？ </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="help1" class="panel-collapse collapse" style="height: auto;">
+                                                    <div class="panel-body">
+                                                        <p>1、<strong class="text-red">极速验号授权登录，绝对是安全的。就跟用微信授权登录小程序一样，只有授权后才可以获取信息。</strong></p>
+                                                        <p>2、整个过程并不需要你输入密码，所以不存在泄漏密码的说法。</p>
+                                                        <p>3、为保护买家隐私，你只能在买家登记后30分钟之内查询到信息，过期后查询不到。</p>
+                                                        <p>4、只提取验号相关信息，不涉及买家敏感信息，如真实姓名、身份证、手机号，购买的商品标题也会做*号处理。</p>
+                                                        <p>5、更不会对买家帐号做一些非法操作，比如修改信息，收藏、加购、下单不明商品。</p>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="helpinfo2">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordionPanels" href="#help2" class=""> 我是新手，极速验号应该怎么使用？ </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="help2" class="panel-collapse collapse" style="height: auto;">
+                                                    <div class="panel-body">
+                                                        <p>1、<strong class="text-red">复制左侧的验号淘口令，发给买家，让他打开手机淘宝，按提示操作。</strong></p>
+                                                        <p>2、买家同意验号确认登录之后，发旺旺号给你。</p>
+                                                        <p>3、你在网页上输入他的旺旺，查询即可。</p>
+                                                        <p>4、如果还有更多不明白的问题，开通功能之后，加入SVIP群跟老司机们交流。</p>
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                             
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <div id="data" class="ro" style="margin-top:50px;">
+
+                                        <div class="col-md-12 col-lg-8 col-md-offset-0 col-lg-offset-2">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4 class="">基本信息</h4>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                        <img class="img-circle" src="https://gw.alicdn.com/tps/i3/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png" width="70px" alt="">
+                                                    </div>
+                                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                        <table class="table table-borderless">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>身价：买家</td>
+                                                                    <td>昵称：我是小号</td>
+                                                                    <td>性别：男</td>
+                                                                    <td>年龄：28岁</td>
+                                                                    <td>信用：<img src="//img.alicdn.com/newrank/b_blue_2.gif" title="买家累积信用"></td>
+                                                                    <td>认证：<img alt="支付宝个人认证" border="0" align="absmiddle" src="//img.alicdn.com/zfb_person_small.gif" title="支付宝个人认证"></td> 
+                                                                    <td>花呗：<strong class="text-success">已开通</strong></td> 
+                                                                </tr>
+                                                                <tr class="text-success"><th colspan="7">宝宝是个健康的消费者,账户没有相关的风险或违规信息，继续保持哦！</th>  </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+<!--                                                    <div class="pull-right">
+                                                        <button class="btn btn-success">极品 <span class="label label-badge">12</span></button> 
+                                                        <button class="btn btn-info">良好 <span class="label label-badge">12</span></button>
+                                                        <button class="btn btn-warning">一般 <span class="label label-badge">12</span></button>
+                                                        <button class="btn btn-danger">黑号 <span class="label label-badge">12</span></button>
+                                                    </div>-->
+                                                    <div class="pull-left small update" data-clipboard-action="copy" data-clipboard-target="#tkl">
+                                                        <p style="cursor:pointer">
+                                                            <i class="icon icon-refresh"></i> 更新时间：2018年1月25日 22:40:26
+                                                        </p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4 class="">积分等级</h4>
+
+                                                    <table class="table table-borderless">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>天猫积分：1636</td>
+                                                                <td>会员等级：4</td>
+                                                                <td>信誉评级：极好</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4 class="">喜好数据</h4>
+
+                                                    <table class="table table-borderless">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>收藏店铺：100</td>
+                                                                <td>收藏宝贝：335</td>
+                                                                <td>足迹：336</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix visible-xs-block"></div>
+                                        <div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4 class="">购物数据<p class="pull-right"><a id="usertag" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-tags"></i> 用户标签</a> </p></h4>
+
+                                                    <table class="table table-borderless">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>待付款：2</td>
+                                                                <td>待发货：3</td>
+                                                                <td>待收货：1</td>
+                                                                <td>待评价：2</td>
+                                                                <td>退款中：0</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td><a id="olist" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-gift"></i> 最近购买</a></td> 
+                                                                <td><a id="clist" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-shopping-cart"></i> 最近加购</a></td> 
+                                                                <td><a id="reclist" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-trash"></i> 订单回收站</a></td> 
+                                                                <td><a id="dispute_1" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-bug"></i> 售中退款</a></td> 
+                                                                <td><a id="dispute_2" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-bug"></i> 售后退款</a></td> 
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4 class="">淘龄&挥霍明细</h4>
+                                                    <table class="table table-borderless">
+                                                        <tbody>
+                                                            <tr> <td>淘龄：3790天</td> <td>开号：2007-9-9</td> <td>挥霍：￥1538.9</td> <td>笔数：12</td> </tr>
+                                                            <tr> <td>散财天数：33天</td> <td>点赞总数：28个</td> <td>占领城市：13个</td> <td>&nbsp;</td> </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix visible-xs-block"></div>
+                                        <div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2">
+                                            <div class="card" style="height:  ">
+                                                <div class="panel-body" style="height:  ">
+                                                    <h4 class="">信誉明细</h4>
+                                                    <div class="nr"><h4>
+                                                            买家累积信用：
+                                                            <a>591</a>
+                                                            <a target="_blank"><img src="//img.alicdn.com/newrank/b_blue_2.gif" title="501－1000个买家信用积分，请点击查看详情" border="0" align="absmiddle"></a> <p class="pull-right">好评率：<strong  class="text-red">100.00%</strong></p></h4>
+
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>&nbsp;</th>
+                                                                    <th>最近1周</th>
+                                                                    <th>最近1个月</th>
+                                                                    <th>最近6个月</th>
+                                                                    <th>6个月前</th>
+                                                                    <th>总计</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><span class="tb-rate-ico-bg ico-good">好评</span></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>21</a></td>
+                                                                    <td><a>570</a></td>
+                                                                    <td>591</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="tb-rate-ico-bg ico-neutral">中评</span></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td>0</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="tb-rate-ico-bg ico-bad">差评</span></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td>0</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>总计</td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>0</a></td>
+                                                                    <td><a>21</a></td>
+                                                                    <td><a>570</a></td>
+                                                                    <td>591</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <p class="pull-left">
+                                                            <a id="logrategive" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-comments-alt"></i> 给他人评价</a>
+                                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                            <a id="lograteget" onclick="demolist(this)" style="cursor:pointer"><i class="icon icon-trophy"></i> 来自卖家的评价</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4>淘气值 <strong><span class="label label-badge label-warning">普通会员</span></strong> </h4>
+                                                    <p class="small text-ellipsis">亲最近来买的少了点，购物分下滑了，淘气值也少了呢。多来逛逛，好东西等着亲~</p>
+                                                    <div id="tqz-tb" class="col-md-7 col-sm-7" style="height: 238px"></div>
+                                                    <div class="col-md-5 col-sm-7">
+                                                        <table class="table table-borderless table-condensed">
+                                                            <tbody>
+                                                                <tr style="color: #f79b36;">
+                                                                    <td><strong>购物分：301</strong></td>
+                                                                </tr>
+                                                                <tr class="small">
+                                                                    <td>本期：￥17854</td>
+                                                                </tr>
+                                                                <tr class="small">
+                                                                    <td>上期：￥18771</td>
+                                                                </tr>
+                                                                <tr style="color: #48ccff;">
+                                                                    <td><strong>奖励分：187</strong></td>
+                                                                </tr>
+                                                                <tr class="small">
+                                                                    <td>购物奖励分：139</td>
+                                                                </tr>
+                                                                <tr class="small">
+                                                                    <td>互动奖励分：48</td>
+                                                                </tr>
+                                                                <tr style="color: #ffca00;">
+                                                                    <td><strong>基础分：400</strong></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+
+                                        <div class="clearfix visible-xs-block"></div>
+                                        <div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2">
+                                            <div class="card">
+                                                <div class="panel-body">
+                                                    <h4 class="">信誉评级指标</h4>
+                                                    <div id="pjzb-tb" style="height: 238px"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+	 {dede:include filename="footer.htm"/} 
+
+
+
+</div>
+
+
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="/static/echarts.min.js"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script>             <script>
+
+
+
+
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+
+
+if(data['userid']==""){
+
+$("#go").html('此功能需开通VIP权限，点击开通。');
+
+}else{
+
+
+if(data['M_Rank'] == 20){
+}
+else
+{
+
+
+
+$("#go").html('此功能需开通VIP权限，点击开通。');
+
+
+
+
+}
+
+
+}
+  },"json");
+
+
+
+
+
+
+                                                                function demolist() {
+                                                                    new $.zui.Messager('演示数据不展示详情，请输入用户名查询详情。', {
+                                                                        type: 'danger',
+                                                                        placement: 'center',
+                                                                        icon: 'warning-sign'
+                                                                    }).show();
+                                                                }
+                                                                var getnick = null;
+                                                                function showlist(data) {
+                                                                    var id = data.id;
+                                                                    var text = $.trim(data.text);
+                                                                    var title = text + '数据';
+                                                                    if (id === 'weigui') {
+                                                                        var wg_data = handleData.data.pinggu;
+                                                                        show_wglist(wg_data, title);
+                                                                        return false;
+                                                                    }
+
+                                                                    $.ajax({
+                                                                        type: "get",
+                                                                        url: '/ajax/ajax_yhmod_1.php?nick=' + getnick + '&get=' + id,
+                                                                        dataType: "json",
+                                                                        success: function (res) {
+                                                                            if (res.err === '0') {
+                                                                                switch (res.class) {
+                                                                                    case 'mypath_list':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            var txt = res.desc + ' 最近 ' + res.data.length + ' 条数据';
+                                                                                            show_mypath(res, txt);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'usertag':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            show_usertag(res, title);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'olist':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            show_olist(res, title);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'reclist':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            show_olist(res, title);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'rate_r_list':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            if (res.data[0].comment == '') {
+                                                                                                layer.msg('最近1个月' + res.desc + '为 0');
+                                                                                                return false;
+                                                                                            }
+                                                                                            var txt = res.desc + ' 最近1个月为 ' + res.data.length + ' 条数据';
+                                                                                            show_rlist(res, txt);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'rate_p_list':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            var txt = res.desc + ' 最近 ' + res.data.length + ' 条数据';
+                                                                                            show_rlist(res, txt);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'clist':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            var txt = res.desc + ' 最近 ' + res.data.length + ' 条数据';
+                                                                                            show_clist(res, txt);
+                                                                                        }
+                                                                                        break;
+                                                                                    case 'dispute':
+                                                                                        if (res.data.length == '0') {
+                                                                                            layer.msg(res.desc + '没有数据');
+                                                                                        } else {
+                                                                                            show_dispute(res, title);
+                                                                                        }
+                                                                                        break;
+                                                                                }
+                                                                            } else {
+                                                                                layer.closeAll('loading');
+                                                                                new $.zui.Messager(res.msg, {
+                                                                                    type: 'danger',
+                                                                                    placement: 'center',
+                                                                                    icon: 'warning-sign'
+                                                                                }).show();
+                                                                            }
+                                                                        },
+                                                                        beforeSend: function () {
+                                                                            layer.msg('开始查询，请耐心等待...', {
+                                                                                time: 800
+                                                                            });
+                                                                        },
+                                                                        complete: function () {
+                                                                            layer.closeAll('loading');
+                                                                        }
+                                                                    });
+                                                                }
+
+
+                                                                var handleData = null; // 用全局变量记录ajax结果
+                                                                layui.use('form', function () {
+                                                                    var form = layui.form();
+                                                                    var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+
+                                                                    form.on('submit(yhpro)', function (data) {
+                                                                        //console.log(data.field.nick);
+                                                                        getnick = data.field.nick;
+                                                                        $.ajax({
+                                                                            url: "/ajax/ajax_yhpro_1.php",
+                                                                            data: data.field,
+                                                                            type: "post",
+                                                                            dataType: "json",
+                                                                            success: function (res) {
+                                                                                if (res.err === '1') {
+                                                                                    layer.msg(res.msg);
+                                                                                    return false;
+                                                                                }
+                                                                                handleData = res;
+                                                                                // console.log(res);
+                                                                                layer.msg(res.msg);
+                                                                                var basic = res.data.basic;
+                                                                                var like = res.data.like;
+                                                                                var order = res.data.order;
+                                                                                var pinggu = res.data.pinggu;
+                                                                                var pg_desc = pinggu.desc;
+                                                                                var rate = res.data.rate;
+                                                                                var tqz = res.data.tqz;
+                                                                                //var vip_data = res.data.vip_data;
+                                                                                if (res.data.vip_data == null) {
+                                                                                    var ageNum = '***';
+                                                                                    var regdate = '**-**-**';
+                                                                                    var money_total = '***';
+                                                                                    var bishu_total = '***';
+                                                                                    var sancai_total = '***';
+                                                                                    var like_total = '***';
+                                                                                    var city_total = '***';
+                                                                                } else {
+                                                                                    var vip_data = res.data.vip_data;
+                                                                                    var ageNum = vip_data.ageNum;
+                                                                                    var regdate = vip_data.regdate;
+                                                                                    var money_total = vip_data.money_total;
+                                                                                    var bishu_total = vip_data.bishu_total;
+                                                                                    var sancai_total = vip_data.sancai_total;
+                                                                                    var like_total = vip_data.like_total;
+                                                                                    var city_total = vip_data.city_total;
+                                                                                }
+                                                                                var xypj = res.data.xypj;
+                                                                                if (pinggu.num) {
+                                                                                    pg_desc = '<a class="btn btn-danger" id="weigui" onclick="showlist(this)"><strong>' + pg_desc + '</strong></a>';
+                                                                                }
+                                                                                //console.log(pg_desc);
+                                                                                var tqz_jc = tqz['data'][0]['value'];
+                                                                                var tqz_jl = tqz['data'][1]['value'];
+                                                                                var tqz_gw = tqz['data'][2]['value'];
+                                                                                var pj_data = new Array(xypj.data[0], xypj.data[4], xypj.data[3], xypj.data[2], xypj.data[1]);
+                                                                                var rate_tb = '<h4> ' + rate.buyer_txt + '： <a>' + rate.buyer_score + '</a> <a target="_blank"><img src="' + rate.buyer_icon + '" border="0" align="absmiddle"></a> <p class="pull-right">好评率：<strong class="text-red">' + rate.buyer_good + '</strong></p></h4>';
+                                                                                rate_tb += '<table class="table table-bordered">';
+                                                                                rate_tb += '<thead> <tr> <th>&nbsp;</th> <th>最近1周</th> <th>最近1个月</th> <th>最近6个月</th> <th>6个月前</th> <th>总计</th> </tr> </thead>';
+                                                                                rate_tb += '<tbody>';
+                                                                                for (var i = 0; i < rate.buyer.length; i++) {
+
+                                                                                    switch (rate.buyer[i]['tr1']) {
+                                                                                        case '好评':
+                                                                                            var tr1 = '<span class="tb-rate-ico-bg ico-good">好评</span>';
+                                                                                            break;
+                                                                                        case '中评':
+                                                                                            var tr1 = '<span class="tb-rate-ico-bg ico-neutral">中评</span>';
+                                                                                            break;
+                                                                                        case '差评':
+                                                                                            var tr1 = '<span class="tb-rate-ico-bg ico-bad">差评</span>';
+                                                                                            break;
+                                                                                        case '总计':
+                                                                                            var tr1 = '总计';
+                                                                                            break;
+                                                                                    }
+                                                                                    //var tr1 = rate.buyer[i]['tr1'];
+                                                                                    var tr2 = rate.buyer[i]['tr2'];
+                                                                                    var tr3 = rate.buyer[i]['tr3'];
+                                                                                    var tr4 = rate.buyer[i]['tr4'];
+                                                                                    var tr5 = rate.buyer[i]['tr5'];
+                                                                                    var tr6 = rate.buyer[i]['tr6'];
+                                                                                    rate_tb += '<tr><td>' + tr1 + '</td><td>' + tr2 + '</td><td>' + tr3 + '</td><td>' + tr4 + '</td><td>' + tr5 + '</td><td>' + tr6 + '</td></tr>';
+                                                                                }
+                                                                                rate_tb += '</tbody></table>';
+                                                                                if (tqz.score < 1000) {
+                                                                                    var tqztxt = '<span class="label label-badge label-warning">普通会员</span>';
+                                                                                } else {
+                                                                                    var tqztxt = '<span class="label label-badge label-danger">超级会员</span>';
+                                                                                }
+
+                                                                                switch (basic.signed) {
+                                                                                    case '已实名':
+                                                                                        var signed = '<img alt="支付宝个人认证" border="0" align="absmiddle" src="//img.alicdn.com/zfb_person_small.gif" title="支付宝个人认证">';
+                                                                                        break;
+                                                                                    case '未实名':
+                                                                                        var signed = '<strong class="text-red">未实名</strong>';
+                                                                                        break;
+                                                                                    default:
+                                                                                        var signed = '<strong class="text-red">无数据</strong>';
+                                                                                        break;
+                                                                                }
+                                                                                switch (basic.huabei) {
+                                                                                    case '已开通':
+                                                                                        var huabei = '<strong class="text-success">已开通</strong>';
+                                                                                        break;
+                                                                                    case '未开通':
+                                                                                        var huabei = '<strong class="text-red">未开通</strong>';
+                                                                                        break;
+                                                                                    default:
+                                                                                        var huabei = '<strong class="text-red">无数据</strong>';
+                                                                                        break;
+                                                                                }
+                                                                                //console.log(rate);
+                                                                                var str = '<div class="col-md-12 col-lg-8 col-md-offset-0 col-lg-offset-2"> <div class="card"> <div class="panel-body"> <h4 class="">基本信息</h4> <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"> <img class="img-circle" src="' + basic.userLogo + '" width="70px" alt=""> </div> <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10"> <table class="table table-borderless"> <tbody> <tr> <td>身份：' + basic.type + '</td> <td>昵称：' + getnick + '</td> <td>性别：' + basic.sex + '</td> <td>年龄：' + basic.age + '</td> <td>信用：<img src="' + rate.buyer_icon + '" title="买家累积信用"></td> <td>认证：' + signed + '</td> <td>花呗：' + huabei + '</td></tr> <tr class="text-success"><th colspan="7">' + pg_desc + '</th>  </tr> </tbody> </table> </div><div class="pull-left small update" data-clipboard-action="copy" data-clipboard-target="#tkl"> <p style="cursor:pointer"> <i class="icon icon-refresh"></i> 更新时间：' + res.data.update + ' </p></div><div class="pull-right small"> <p><i class="icon icon-sitemap"></i> 类目权重：' + basic['topcats'] + '</p></div> </div> </div> </div>';
+                                                                                str += '<div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2"> <div class="card"> <div class="panel-body"> <h4 class="">积分等级</h4> <table class="table table-borderless"> <tbody> <tr> <td>天猫积分：' + basic.tm_point + '</td> <td>会员等级：' + basic.userLevel + '</td> <td>信誉评级：' + basic.xypj + '</td> </tr> </tbody> </table> </div> </div> </div>';
+                                                                                str += '<div class="col-md-6 col-lg-4"> <div class="card"> <div class="panel-body"> <h4 class="">喜好数据</h4> <table class="table table-borderless"> <tbody> <tr> <td>收藏店铺：' + like.favoriteShop + '</td> <td>收藏宝贝：' + like.favoriteItem + '</td> <td><a id="mypath" onclick="showlist(this)" style="cursor:pointer">足迹：' + like.footPrints + '</a></td> </tr> </tbody> </table> </div> </div> </div>';
+                                                                                str += '<div class="clearfix visible-xs-block"></div>';
+                                                                                str += '<div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2"> <div class="card"> <div class="panel-body"> <h4 class="">购物数据 <p class="pull-right"><a id="usertag" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-tags"></i> 用户标签</a> </p></h4> <table class="table table-borderless"> <tbody> <tr> <td>待付款：' + order.order2Pay + '</td> <td>待发货：' + order.order2Deliver + '</td> <td>待收货：' + order.order2Receive + '</td> <td>待评价：' + order.order2Rate + '</td> <td>退款中：' + order.order2Refund + '</td> </tr> <tr> <td><a id="olist" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-gift"></i> 最近购买</a></td> <td><a id="clist" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-shopping-cart"></i> 最近加购</a></td> <td><a id="reclist" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-trash"></i> 订单回收站</a></td> <td><a id="dispute_1" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-bug"></i> 售中退款</a></td> <td><a id="dispute_2" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-bug"></i> 售后退款</a></td> </tr></tbody> </table></div> </div> </div> ';
+                                                                                str += '<div class="col-md-6 col-lg-4"> <div class="card"> <div class="panel-body"> <h4 class="">淘龄&挥霍明细</h4> <table class="table table-borderless"> <tbody> <tr> <td>淘龄：' + ageNum + '天</td> <td>开号：' + regdate + '</td> <td>挥霍：￥' + money_total + '</td> <td>笔数：' + bishu_total + '</td> </tr> <tr> <td>散财天数：' + sancai_total + '天</td> <td>点赞总数：' + like_total + '个</td> <td>占领城市：' + city_total + '个</td> <td></td> </tr></tbody> </table></div> </div> </div>';
+                                                                                str += '<div class="clearfix visible-xs-block"></div>';
+                                                                                str += '<div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2"> <div class="card"> <div class="panel-body"> <h4 class="">信誉明细</h4>  ' + rate_tb + ' <p class="pull-left"> <a id="rate_p" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-comments-alt"></i> 给他人评价</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <a id="rate_r" onclick="showlist(this)" style="cursor:pointer"><i class="icon icon-trophy"></i> 来自卖家的评价</a> </p></div> </div> </div>';
+                                                                                str += '<div class="col-md-6 col-lg-4"> <div class="card"> <div class="panel-body"> <h4 class="">淘气值 ' + tqztxt + '</h4> <p class="small text-ellipsis">' + tqz.desc + '</p> <div id="tqz-tb" class="col-md-7 col-sm-7" style="height: 238px"></div> <div class="col-md-5 col-sm-7"> <table class="table table-borderless table-condensed"> <tbody> <tr style="color: #f79b36;"> <td><strong>购物分：' + tqz.tradeScore + '</strong></td> </tr> <tr class="small"> <td>本期：' + tqz.buyMoneyConvertCur + '</td> </tr> <tr class="small"> <td>上期：' + tqz.buyMoneyConvertLast + '</td> </tr> <tr style="color: #48ccff;"> <td><strong>奖励分：' + tqz.bonusScore + '</strong></td> </tr> <tr class="small"> <td>购物奖励分：' + tqz.tradeBonusScore + '</td> </tr> <tr class="small"> <td>互动奖励分：' + tqz.interactBonusScore + '</td> </tr> <tr style="color: #ffca00;"> <td><strong>基础分：' + tqz.basicScore + '</strong></td> </tr> </tbody> </table> </div> </div> </div> </div>';
+                                                                                str += '<div class="clearfix visible-xs-block"></div>';
+                                                                                str += '<div class="col-md-6 col-lg-4 col-md-offset-0 col-lg-offset-2"> <div class="card"> <div class="panel-body"> <h4 class="">信誉评级指标</h4> <div id="pjzb-tb" style="height: 238px"></div> </div> </div> </div>';
+                                                                                $("#data").html(str);
+                                                                                show_tqz(tqz.score, tqz_jc, tqz_jl, tqz_gw);
+                                                                                show_grade(pj_data, xypj.desc.desc);
+                                                                            },
+                                                                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                                                                layer.closeAll();
+                                                                                layer.alert('查询失败！<br>请检查输入字段是否有误，或稍后再试。', {
+                                                                                    icon: 5
+                                                                                });
+                                                                            },
+                                                                            beforeSend: function () {
+                                                                                layer.msg('开始查询，请耐心等待...', {
+                                                                                    time: 500
+                                                                                }, function () {
+                                                                                    //layer.load();
+                                                                                });
+                                                                            },
+                                                                            complete: function () {
+                                                                                layer.closeAll('loading');
+                                                                            }
+                                                                        });
+                                                                        return false;
+                                                                    });
+                                                                });
+                                                                $('#dl').on('click', function () {
+                                                                    layer.msg(handleData.msg);
+                                                                });
+                                                                function checknick(obj) {
+                                                                    //var nick = $.trim(obj.value);
+                                                                    var nick = myTrim(obj.value).toLowerCase();
+                                                                    console.log(nick);
+
+                                                                    $("input[name=" + obj.name + "]").val(nick);
+                                                                    $.ajax({
+                                                                        type: "get",
+                                                                        url: '/ajax/cknick_1.php?nick=' + nick,
+                                                                        dataType: "json",
+                                                                        success: function (res) {
+                                                                            if (res.err === '1') {
+                                                                                new $.zui.Messager(res.msg, {
+                                                                                    type: 'danger',
+                                                                                    placement: 'center',
+                                                                                    icon: 'warning-sign'
+                                                                                }).show();
+                                                                                $("input[name=" + obj.name + "]").val(null);
+                                                                                $("#go").attr("class", "btn btn-primary btn-lg btn-block disabled");
+                                                                            } else {
+                                                                                $("#go").attr("class", "btn btn-primary btn-lg btn-block");
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                }
+                                                                var clipboard = new Clipboard('.tkl');
+                                                                var t = new Clipboard('.update');
+                                                                clipboard.on('success', function (e) {
+                                                                    layer.msg('复制成功，请发给买家登记。');
+                                                                    //console.log(e);
+                                                                });
+                                                                t.on('success', function (e) {
+                                                                    layer.msg('复制成功，请发给买家登记。');
+                                                                    //console.log(e);
+                                                                });
+                                                                clipboard.on('error', function (e) {
+                                                                    layer.msg('浏览器不支持，请手动复制。');
+                                                                    //console.log(e);
+                                                                });
+                                                                var pj_data = [90, 95, 89, 88, 92];
+                                                                //console.log(pj_data);
+                                                                show_grade(pj_data, '极好');
+                                                                function show_grade(pj_data, txt) {
+                                                                    var dom = document.getElementById("pjzb-tb");
+                                                                    var myChart1 = echarts.init(dom);
+                                                                    var app = {};
+                                                                    option = null;
+                                                                    option = {
+                                                                        title: {
+                                                                            text: txt,
+                                                                            x: 'center',
+                                                                            y: '42%',
+                                                                            textStyle: {
+                                                                                fontSize: 24,
+                                                                                color: '#ac6518'
+                                                                            }
+                                                                        },
+                                                                        color:
+                                                                                ['#efa350', '#48ccff', '#f79b36']
+                                                                        ,
+                                                                        tooltip: {
+                                                                            trigger: 'axis'
+                                                                        },
+                                                                        legend: {
+                                                                            x: 'center',
+                                                                            data: [''],
+                                                                            display: false
+                                                                        },
+                                                                        radar: [
+                                                                            {
+                                                                                indicator: [
+                                                                                    {text: '帐户信息', max: 100},
+                                                                                    {text: '评价历史', max: 100},
+                                                                                    {text: '购物合规', max: 100},
+                                                                                    {text: '购物信用', max: 100},
+                                                                                    {text: '购物历史', max: 100}
+                                                                                ],
+                                                                                //center: ['40%','50%'],
+                                                                                radius: 90
+                                                                            }
+                                                                        ],
+                                                                        series: [
+                                                                            {
+                                                                                type: 'radar',
+                                                                                tooltip: {
+                                                                                    trigger: 'item'
+                                                                                },
+                                                                                itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                                                                                data: [
+                                                                                    {
+                                                                                        //value: [90, 95, 89, 88, 92],
+                                                                                        value: pj_data,
+                                                                                        name: '信誉评级指标详情'
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    };
+                                                                    if (option && typeof option === "object") {
+                                                                        myChart1.setOption(option, true);
+                                                                    }
+                                                                    window.addEventListener("resize", function () {
+                                                                        myChart1.resize();
+                                                                    });
+                                                                }
+
+                                                                show_tqz();
+                                                                function show_tqz(tqz = '888', jc = '388', jl = '288', gw = '188') {
+                                                                    var dom = document.getElementById("tqz-tb");
+                                                                    var myChart2 = echarts.init(dom);
+                                                                    var app = {};
+                                                                    option = null;
+                                                                    app.title = '环形图';
+                                                                    option = {
+                                                                        title: {
+                                                                            text: tqz,
+                                                                            subtext: '本期分值',
+                                                                            x: 'center',
+                                                                            //x: '40%',
+                                                                            y: '40%',
+                                                                            textStyle: {
+                                                                                fontSize: 24,
+                                                                                color: '#1cc9bb'
+                                                                            }
+                                                                        },
+                                                                        color:
+                                                                                ['#ffca00', '#48ccff', '#f79b36']
+                                                                        ,
+                                                                        tooltip: {
+                                                                            trigger: 'item',
+                                                                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                                                                        },
+                                                                        legend: {
+                                                                            orient: 'vertical',
+                                                                            x: 'left',
+                                                                            data: ['']
+                                                                        },
+                                                                        series: [
+                                                                            {
+                                                                                name: '淘气值',
+                                                                                type: 'pie',
+                                                                                radius: ['50%', '70%'],
+                                                                                avoidLabelOverlap: false,
+                                                                                label: {
+                                                                                    normal: {
+                                                                                        show: false,
+                                                                                        position: 'center'
+                                                                                    },
+                                                                                    emphasis: {
+                                                                                        show: false,
+                                                                                        textStyle: {
+                                                                                            fontSize: '18',
+                                                                                            fontWeight: 'bold'
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                labelLine: {
+                                                                                    normal: {
+                                                                                        show: false
+                                                                                    }
+                                                                                },
+                                                                                data: [
+                                                                                    {value: jc, name: '基础分'},
+                                                                                    {value: jl, name: '奖励分'},
+                                                                                    {value: gw, name: '购物分'}
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    };
+                                                                    if (option && typeof option === "object") {
+                                                                        myChart2.setOption(option, true);
+                                                                    }
+                                                                    window.addEventListener("resize", function () {
+                                                                        myChart2.resize();
+                                                                    });
+                                                                }
+                                                                function show_mypath(data, title) {
+                                                                    html = '';
+                                                                    html += '<colgroup><col width="45"><col width="80"></colgroup>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+
+                                                                    html += '<tbody>';
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        pic = data[i]['pic'];
+                                                                        tit = data[i]['title'];
+                                                                        url = data[i]['url'];
+                                                                        price = data[i]['price'];
+                                                                        time = data[i]['time'];
+                                                                        p = '<img src="' + pic + '">';
+                                                                        //t = '<a href="' + url + '" target="_blank"> ' + tit + '</a>';
+                                                                        html += '<tr><td>' + (i + 1) + '</td><td>' + p + '</td><td>' + tit + '</td><td>' + price + '</td><td>' + time + '</td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-striped table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: '', custom: html})).show();
+                                                                }
+                                                                function show_usertag(data, title) {
+                                                                    html = '';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+
+                                                                    html += '<tbody>';
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        hang = data.length[i];
+                                                                        html += '<tr><td>' + (i + 1) + '</td><td>' + data[i] + '</td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-striped table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: '', custom: html})).show();
+                                                                }
+                                                                function show_olist(data, title) {
+                                                                    html = '<colgroup><col width="45"><col width="80"></colgroup>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+                                                                    //'图片,标题,价格,数量,下单,状态',
+                                                                    html += '<tbody>';
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        p = data[i]['pic'];
+                                                                        t = data[i]['title'];
+                                                                        u = data[i]['itemUrl'];
+                                                                        r = data[i]['realTotal'];
+                                                                        q = data[i]['quantity'];
+                                                                        s = data[i]['text'];
+                                                                        c = data[i]['createTime'];
+                                                                        b = data[i]['bad'];
+                                                                        if (p) {
+                                                                            p = '<img src="' + p + '" width="60px">';
+                                                                        } else {
+                                                                            p = '';
+                                                                        }
+                                                                        if (b) {
+                                                                            bad = '<strong class="text-red">【' + b + '】</strong> ';
+                                                                        } else {
+                                                                            bad = '';
+                                                                        }
+                                                                        if (s == '交易关闭') {
+                                                                            s = '<strong class="text-red">' + s + '</strong> ';
+                                                                        }
+                                                                        u_t = '<a href="' + u + '" target="_blank"> ' + bad + t + '</a>';
+                                                                        n_t = bad + t;
+
+                                                                        //console.log(bad);
+                                                                        html += '<tr><td>' + (i + 1) + '</td> <td>' + p + '</td> <td> ' + n_t + '</td> <td>' + r + '</td><td>' + q + '</td> <td>' + c + '</td> <td>' + s + '</td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-striped table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: 'lg', custom: html})).show();
+                                                                }
+                                                                function show_olist_old(data, title) {
+                                                                    html = '<colgroup><col width="45"><col width="80"></colgroup>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+                                                                    //'图片,标题,价格,数量,下单,状态',
+                                                                    html += '<tbody>';
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        orders = data[i]['subOrders'];
+                                                                        //console.log(orders.length);
+                                                                        for (j = 0; j < orders.length; j++) {
+                                                                            p = orders[j]['itemInfo']['pic'];
+                                                                            if (p) {
+                                                                                p = '<img src="' + p + '" width="60px">';
+                                                                            } else {
+                                                                                p = '';
+                                                                            }
+                                                                            t = orders[j]['itemInfo']['title'];
+                                                                            u = orders[j]['itemInfo']['itemUrl'];
+                                                                            r = orders[j]['priceInfo']['realTotal'];
+                                                                            q = orders[j]['quantity'];
+                                                                            s = data[i]['statusInfo']['text'];
+                                                                            c = data[i]['orderInfo']['createTime'];
+                                                                            icons = orders[j]['itemInfo']['serviceIcons'];
+                                                                            if (icons) {
+                                                                                rule = '//rule.taobao.com/detail-1722.htm';
+                                                                                //icons = icons[0]['title'];
+                                                                                linkUrl = icons[0]['linkUrl'];
+                                                                                if (linkUrl == rule) {
+                                                                                    icon_txt = icons[0]['title'];
+                                                                                    bad = '<strong class="text-red">【' + icon_txt + '】</strong> ';
+                                                                                } else {
+                                                                                    bad = '';
+                                                                                }
+                                                                                if (icons[1]) {
+                                                                                    linkUrl = icons[1]['linkUrl'];
+                                                                                    if (linkUrl == rule) {
+                                                                                        icon_txt = icons[1]['title'];
+                                                                                        bad += '<strong class="text-red">【' + icon_txt + '】</strong> ';
+                                                                                    } else {
+                                                                                        bad += '';
+                                                                                    }
+                                                                                }
+
+                                                                            } else {
+                                                                                bad = '';
+                                                                            }
+                                                                            console.log(bad);
+                                                                            html += '<tr><td>' + (j + 1) + '</td> <td>' + p + '</td> <td><a href="' + u + '" target="_blank"> ' + bad + t + '</a></td> <td>' + r + '</td><td>' + q + '</td> <td>' + c + '</td> <td>' + s + '</td>';
+                                                                            html += '</tr>';
+                                                                        }
+
+                                                                        //html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-striped table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: 'fullscreen', custom: html})).show();
+                                                                }
+                                                                function show_rlist(data, title) {
+                                                                    html = '<colgroup><col width="60"><col width="140"> <col width="600"> <col width="100"> <col width="120"> </colgroup>';
+                                                                    //html = '<thead><tr> <th>&nbsp;</th> <th>评价</th> <th>评论</th> <th>被评价人</th> <th>宝贝信息</th> <th>价格</th> </tr></thead>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+
+                                                                    html += '<tbody>';
+                                                                    var real = data.real;
+                                                                    var invalid = data.invalid;
+                                                                    var del = data.del;
+                                                                    var type = data.class;
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        hang = data.length[i];
+                                                                        html += '<tr><td>' + (i + 1) + '</td><td>' + data[i]['rate'] + '</td><td>' + data[i]['comment'] + '</td><td>' + data[i]['type'] + '</td><td>' + data[i]['nick'] + '</td><td>' + data[i]['title'] + '</td><td>' + data[i]['price'] + '</td><td>' + data[i]['date'] + '</td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-striped table-hover">' + html + '</table>';
+                                                                    if (type === 'rate_r_list') {
+                                                                        title += ', 有效评价：<span class="text-red">' + real + ' 条</span> ，不计分：<span class="text-red">  ' + invalid + '条</span> ';
+                                                                    } else {
+                                                                        title += ', 有效评价：<span class="text-red">' + real + ' 条</span> ，不计分：<span class="text-red">  ' + invalid + '条</span> ，涉嫌虚假交易：<span class="text-red">  ' + del + '条</span> ';
+                                                                    }
+                                                                    //console.log(title);
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: 'lg', custom: html})).show();
+                                                                }
+
+                                                                function show_clist(data, title) {
+                                                                    html = '<colgroup><col width="40"><col width="60"></colgroup>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+
+                                                                    html += '<tbody>';
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        hang = data.length[i];
+                                                                        html += '<tr><td>' + (i + 1) + '</td><td><img src="' + data[i]['picUrl'] + '"></td><td>' + data[i]['title'] + '</td><td>' + data[i]['shop'] + '</td><td>' + data[i]['price'] + '</td><td>' + data[i]['num'] + '</td><td>' + data[i]['time'] + '</td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: 'lg', custom: html})).show();
+                                                                }
+                                                                function show_dispute(data, title) {
+                                                                    html = '<colgroup><col width="40"><col width="60"></colgroup>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+
+                                                                    html += '<tbody>';
+                                                                    var data = data.data;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        hang = data.length[i];
+                                                                        html += '<tr><td>' + (i + 1) + '</td><td><img src="' + data[i]['imgURl'] + '"></td><td>' + data[i]['title'] + '</td><td><span class="text-red">' + data[i]['price'] + '</span></td><td>' + data[i]['time'] + '</td><td><span class="text-red">' + data[i]['type'] + '</span></td><td><span class="text-success">' + data[i]['statu'] + '</span></td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: 'lg', custom: html})).show();
+                                                                }
+                                                                function show_wglist(data, title) {
+                                                                    html = '';
+                                                                    //html = '<colgroup><col width="40"><col width="60"> <col width="400"></colgroup>';
+                                                                    if (data.header) {
+                                                                        html += '<thead><tr><th>#</th>';
+                                                                        header = data.header.split(',');
+                                                                        for (i = 0; i < header.length; i++) {
+                                                                            html += ('<th>' + header[i] + '</th>');
+                                                                        }
+                                                                        html += '</tr></thead>';
+                                                                    }
+
+                                                                    html += '<tbody>';
+                                                                    var data = data.list;
+                                                                    for (i = 0; i < data.length; i++) {
+                                                                        hang = data.length[i];
+                                                                        html += '<tr><td>' + (i + 1) + '</td><td>' + data[i]['time'] + '</td><td>' + data[i]['type'] + '</td><td>' + data[i]['number'] + '</td><td>' + data[i]['user'] + '</td><td>' + data[i]['cause'] + '</td>';
+                                                                        html += '</tr>';
+                                                                    }
+                                                                    html += '</tbody>';
+                                                                    html = '<table id="showinfo" class="table table-bordered table-hover">' + html + '</table>';
+                                                                    (new $.zui.ModalTrigger({title: title, icon: 'list', size: 'lg', custom: html})).show();
+                                                                }
+                                                                function myTrim(x) {
+                                                                    return x.replace(/^\s+|\s+$/gm, '');
+                                                                }
+            </script>
+    </body>
+</html>

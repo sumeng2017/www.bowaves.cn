@@ -1,0 +1,133 @@
+        <div class="main">
+            <header class="header">
+    <div class="header-left">
+        <div class="sidebar-toggle"><i class="icon icon-bars"></i></div>
+        <div class="logo">{dede:global.cfg_webname/}</div>
+    </div>
+    <!-- 左侧的导航项目 -->
+    <ul class="nav navbar-nav visible-lg" style="padding: 10px 0; ">
+        <li> <a href="/" title="首页">首页</a> </li> 
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="小号分析"> 小号分析 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{dede:type typeid='6'}[field:typelink/]{/dede:type}"><i class="icon icon-book"></i> 关键词查权重 </a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='7'}[field:typelink/]{/dede:type}"><i class="icon icon-search"></i> 千人千面排名查询</a></li>
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='8'}[field:typelink/]{/dede:type}"><i class="icon icon-umbrella"></i> 买家帐号深度分析</a></li>
+            </ul>
+        </li>
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="直通车神器"> 直通车神器 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{dede:type typeid='12'}[field:typelink/]{/dede:type}"><i class="icon icon-bullseye"></i> 直通车卡首屏 <span class="label label-badge label-danger">VIP</span></a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='13'}[field:typelink/]{/dede:type}"><i class="icon icon-leaf"></i> 直通车图下载</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="淘口令补单神器"> 淘口令补单神器 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{dede:type typeid='14'}[field:typelink/]{/dede:type}"><i class="icon icon-flag-checkered"></i> 卡首屏淘口令</a></li>
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='15'}[field:typelink/]{/dede:type}"><i class="icon icon-sitemap"></i> 类目卡位淘口令 <span class="label label-badge label-danger">VIP</span></a></li>
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='16'}[field:typelink/]{/dede:type}"><i class="icon icon-leaf"></i> 卡同行淘口令</a></li>
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='17'}[field:typelink/]{/dede:type}"><i class="icon icon-pushpin"></i> 直通车卡首屏</a></li>
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='18'}[field:typelink/]{/dede:type}"><i class="icon icon-arrow-up"></i> 手淘首页淘口令</a></li>
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='19'}[field:typelink/]{/dede:type}"><i class="icon icon-group"></i> 生活研究所淘口令</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="手淘流量入口"> 手淘流量入口 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">有好货</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">手淘网红集合</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">手淘清仓流量</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">中国质造</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">极有家</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">手机钻展</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">淘抢购</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">每日好店</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">必买清单</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">亲宝贝</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">手淘ifashion</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">潮玩城</a></li> 
+                <li class="divider"></li>
+                <li><a href="{dede:type typeid='20'}[field:typelink/]{/dede:type}">天天特价</a></li> 
+            </ul>
+        </li>
+        
+      
+    </ul>
+    <!-- 右侧的导航项目 -->
+    <ul class="nav navbar-nav navbar-right header-user" style="padding: 10px 0; ">
+
+        <li class="hidden-xs">
+            <a href="#"> 
+                <span id="user">欢迎你，user</span>
+            </a>
+        </li>
+        <li class="hidden-xs">
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;uin=709600600&amp;subcmd=all&amp;website=shengyicanmou.com" target="_blank"> <i class="icon icon-qq"></i>
+                <span>在线咨询</span>
+            </a>
+        </li>
+        <li id="login">
+            <a href="javascript:;" class="login"> <i class="icon icon-user"></i> <span>登录/注册</span> </a>         </li>
+    </ul>
+</header>
+
+
+<script type="text/javascript">
+$(function() {
+layui.use('layer', function() {　　 //公告层
+layer.open({
+type: 1,
+title: false, //不显示标题栏
+// title :'站长推荐',
+closeBtn: 1,
+area: ['300px', '200px'],
+shade: 0,
+offset: 'rb',
+id: 'LAY_layuipro1', //设定一个id，防止重复弹出
+// btn: ['OK', '知道了'],
+moveType: 1,//拖拽模式，0或者1 
+content: '<a href="http://qly360.com/extension/weiyou.html" target="_blank"><img src="img/wycrm.jpg"></a>', 
+});　
+});
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['M_ID'] > 0){
+
+$("#login").html('<a href="/member/index_do.php?fmdo=login&dopost=exit#"> <i class="icon icon-signout"></i> <span>退出</span> </a>');
+$("#user").html('欢迎你，'+data['userid']);
+
+}
+
+
+
+  },"json");
+
+
+
+});
+</script>

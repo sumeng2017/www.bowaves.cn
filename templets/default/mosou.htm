@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>魔搜卡位-不刷单不卡任何口令把宝贝推送到首页-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}魔搜卡位就是把宝贝推送到指定买家帐号，当买家搜索你宝贝关键词时，你的宝贝会显示在前3位，根据宝贝和买家的人群标签匹配度，维持1~3天,不刷单不卡任何口令把宝贝推送到首页。" />
+        <meta name="keywords" content="魔搜卡位,魔搜技术,魔搜代码,神搜卡位,至至尊卡首屏,不刷单卡首屏,魔搜卡位是什么,魔搜打标签,买家打标签工具" />
+        <link rel="stylesheet" type="text/css" href="/static/layui.css" >
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+        <link href="//cdn.bootcss.com/zui/1.7.0/lib/uploader/zui.uploader.min.css" rel="stylesheet">
+        <script src="//cdn.bootcss.com/zui/1.7.0/lib/uploader/zui.uploader.min.js"></script>
+    </head>
+
+    <body>
+{dede:include filename="head.htm"/}
+
+
+
+
+
+
+{dede:include filename="sidebar.htm"/}
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3> <i class="icon icon-trophy"></i>
+                                        魔搜卡位-不刷单不卡任何口令把宝贝推送到首页</h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+
+                                        <form class="layui-form" action="">
+                                            <div class="form-group">
+                                                <label for="item_url">
+                                                    <i class="icon icon-link"></i>
+                                                    宝贝ID（或宝贝链接）
+                                                </label>
+                                                <input type="text" class="form-control" name="id" onchange="get_id(this);" placeholder="输入宝贝ID 或 宝贝链接" lay-verify="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Keyword">
+                                                    <i class="icon icon-group"></i>
+                                                    买家淘宝账号 （支持单个或多个买家淘宝账号）</span>
+                                                </label>
+                                                <textarea id="wwid" class="form-control" style="" rows="10" name="wwid" onkeyup="checkww(this);" placeholder="支持单个或多个买家淘宝账号，账号之间要按回车键换行（一行一个账号）"></textarea>
+                                                <div class="help-block">
+                                                    <p style="margin-top: 1.2em;">已添加 <span class="label label-badge label-warning"id="added">0</span>个账号，还剩 <span class="label label-badge label-warning" id="remainAdd">9999</span>个账号可添加。<span class="text-red">（新品和没有搜索权重的宝贝卡不到，请确认后再用批量推送）</span></p> 
+                                                                                                    </div>
+                                            </div>
+                                            
+											 
+											 
+											 
+											
+											
+											<div id="vip">
+
+											<button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">执行魔搜任务</button> 
+											</div>
+
+											<div class="help-block">
+                                                <p style="margin-top: 1.2em;">免责声明：<span class="text-red">开通VIP会员后，如因淘宝屏蔽导致功能失效，本站不再退款，请各位合理使用！</span></p> 
+                                                <p class="text-red">执行魔搜后系统会对帐号进行的打标，因此会浏览量，不要惊慌，第2天会过滤掉的，但帐号标签已经打上。</p>
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+
+                                    <div id="data" class="col-md-6">
+                                                                                <div class="panel-group" id="accordionPanels" aria-multiselectable="true">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordionPanels" href="#collapse" class=""> <strong class="text-red">什么叫魔搜卡位？</strong>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse" class="panel-collapse in" style="height: auto;">
+                                                    <div class="panel-body">
+                                                        <p><strong class="text-red">简单的说：魔搜卡位就是把宝贝推送到指定买家帐号，当买家搜索你宝贝关键词时，你的宝贝会显示在前3位，根据宝贝和买家的人群标签匹配度，维持1~3天。</strong></p>
+                                                        <p>魔搜卡位就是<strong class="text-red">把自己的宝贝展现在指定的买家前面</strong>，跟卡首屏词口令的最大区别是。词口令是需要买家复制打开手淘口令，你的宝贝才会显示在最前面，但买家正常搜索是看不到你的宝贝的。而<strong class="text-red">魔搜是不需要真实买家做任何事，真实买家正常搜索时就能看到你家的宝贝在首页或靠前排名，相当于直通车把你的宝贝放到首页去</strong>。这个功能，效果好坏就取决于你手上买家淘宝帐号有多少，如果买家淘宝帐号多，效果就很好。</p>
+                                                        <p>不需要任何补单、刷点击、神图等一系列违规手段操作，个性化精准人群流量搜索卡位操作，<strong class="text-red">实现类目热词、长尾词当天卡首屏（只要标题中包含的关键词都可以），当天引爆搜索、首页等免费流量！安全高效、零风险！</strong></p>
+                                                        <p>手淘免费流量（手淘搜索+手淘首页）排名迅速提高，瞬间飙升几千到数十万不等，而且流量100%精准匹配产品人群，让你的产品瞬间出现在搜索卡位的前三，让你真正见证流量奇迹！<strong class="text-red">该资源技术不是黑技术、不违规，纯靠淘系内部资源完成，比黑搜黑技术强N倍！</strong></p>                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="collapse3">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#info3">什么样的产品能达到最好效果？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="info3" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <p>1、产品款式没有问题，价格有一定优势，<strong class="text-red">确保产品转化没有问题。</strong></p>
+                                                        <p>2、务必优化好产品主图，最好经过直通车测试，<strong class="text-red">选最高点击率的图片作为主图。</strong></p>
+                                                        <p>3、最好有几十笔基础销量、好评买家秀，<strong class="text-red">内功做的越好，带动流量越大，流量也就越精准。</strong></p>
+                                                        <p>4、店铺爆款产品首选，宝贝基础流量、转化等数据越好，效果也就越好。</p>
+                                                        <p>5、平台只负责卡位提高曝光率，点击率和转化率与产品自身因素有关。</p>                                                        
+                                                        <p>6、<span class="text-red">如果担心宝贝卡位不出来，可以先用推送几个帐号试试，确定能卡位成功，再用大批量帐号推送。</span></p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="collapse4">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#info4">买家淘宝账号从哪里来？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="info4" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <p>1、自有数据：淘宝后台导出店铺原有老客户</strong></p>
+                                                        <p>2、采集数据：通过采集工具抓取过来的精准帐号（淘宝直播间数据实时提取工具，目前已经失效，请勿购买。）</p>
+                                                        <p>3、<span class="text-red">帐号人群标签越精准，效果也就越明显。</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="collapse5">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#info5">怎么判断是否已经推送成功？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="info5" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <p>使用{dede:global.cfg_webname/}独家功能 <a href="cpm_pro.php" target="_blank">千人千面查排名</a>，输入买家号和你的宝贝关键词，查一下。</p>
+                                                        <p><span class="text-red">如显示在前几位说明成功了</span>，如还没有排名，可能是没执行到你的任务，请过一段时间再查。</p>
+                                                        <p>如果依然查不到排名，那可能是宝贝没有搜索权重，卡不出来，你得换个有权重的宝贝推送。</p>
+                                                    </div>
+                                                </div>
+                                            </div>                                                  
+                                        </div>                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+ {dede:include filename="footer.htm"/} 
+</div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="https://cdn.bootcss.com/js-url/2.5.2/url.min.js"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script>            
+			
+			<script>
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","ms");
+
+
+if(data['M_Rank'] == 20){
+}
+else
+{
+
+$("#vip").html('<button type="button" class="btn btn-danger btn-lg btn-block">此功能需开通VIP权限，点击开通。</button>');
+
+
+
+
+}
+
+
+}
+  },"json");
+                                                    function get_id(obj) {
+                                                        var url_id = obj.value;
+                                                        if (!isNaN(url_id)) {
+                                                        } else {
+                                                            var id = url('?id', url_id);
+                                                            $("input[name=" + obj.name + "]").val(id);
+                                                            //console.log(id);
+                                                        }
+                                                    }
+                                                    $('#uploadertxt').uploader({
+                                                        //autoUpload: true, // 当选择文件后立即自动进行上传操作
+                                                        url: 'ajax/ajax_uploadertxt.php', // 文件上传提交地址
+                                                        limitFilesCount: '1', //限制文件上传数目
+                                                        multi_selection: 'false',
+                                                        chunk_size: '0', //不启用分片上传
+                                                        //file_data_name:'filetxt',
+                                                        filters: {
+                                                            mime_types: [
+                                                                {title: '文本', extensions: 'txt'}  // 只允许上传txt
+                                                            ],
+                                                            max_file_size: '10mb', // 限制上传文件大小
+                                                            prevent_duplicates: true    // 不允许上传重复文件
+                                                        },
+                                                        responseHandler: function (res) {
+//                                                            console.log(res.response);
+                                                            var obj = JSON.parse(res.response); //由JSON字符串转换为JSON对象
+//                                                            console.log(obj);
+                                                            var txturl = obj.url;
+                                                            //console.log(txturl);
+                                                            str = '<input type="text" class="hidden" name="txt_url" value="' + txturl + '">';
+                                                            $("#uploadertxt").append(str);  //回传txt文件路径
+
+                                                            if (obj.wwid_num > 9999) {
+                                                                new $.zui.Messager(obj.msg, {
+                                                                    type: 'danger',
+                                                                    placement: 'center'
+                                                                }).show();
+                                                                return '上传失败，超出限定数量！';
+                                                            }
+
+
+                                                        }
+                                                    });
+
+                                                    function checkww(obj) {
+                                                        var ww = obj.value;
+                                                        ww = ww.replace(/\n/g, ",");
+                                                        console.log(ww);
+                                                        var Allwwid = ww.split(',');
+                                                        for (var i = 0; i < Allwwid.length; i++) {
+                                                            if (Allwwid[i] == '') {
+                                                                Allwwid.splice(i, 1);
+                                                                i--;
+                                                            }
+                                                        }
+                                                        if (Allwwid.length > 9999) {
+                                                            $("input[name=" + obj.name + "]").val(null);
+                                                            $("#wwid").val("");
+                                                            //console.log(obj.name);
+                                                            layer.msg('账号数量超出限制，请修改后重新提交！');
+                                                            return;
+                                                        }
+                                                        taoAccount = Allwwid.join();
+                                                        //console.log(taoAccount);
+                                                        var added = Allwwid.length;
+                                                        //var remainAdd = 1000 - added;
+                                                        var remainAdd = 9999 - added;
+                                                        if (remainAdd < 0) {
+                                                            remainAdd = 0;
+                                                        }
+                                                        var point = Math.ceil(added / 10);
+                                                        $('#added').text(added);
+                                                        $('#remainAdd').text(remainAdd);
+                                                        $('#point').text(point);
+
+
+                                                        str = '<input type="text" class="hidden" name="wwid_num" value="' + added + '">';
+                                                        $("#uploadertxt").append(str);  //回传wwid_num
+                                                    }
+
+                                                    layui.use('form', function () {
+                                                        var form = layui.form();
+                                                        //监听提交
+                                                        form.on('submit(ms)', function (data) {
+//                                                            layer.msg(JSON.stringify(data.field));
+//                                                            wws = data.field.wwid;
+                                                            //console.log(data.field);
+                                                            $.ajax({
+                                                                url: "/ajax/ajax_ms.php",
+                                                                data: data.field,
+                                                                type: "post",
+                                                                dataType: "json",
+                                                                success: function (res) {
+                                                                    //  console.log(res);
+                                                                    if (res.err === '0') {
+                                                                        layer.alert(res.msg);
+                                                                    } else {
+                                                                        layer.alert(res.msg);
+                                                                    }
+                                                                },
+                                                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                                                    layer.alert('提交失败！<br>服务器繁忙，请稍后再试。', {
+                                                                        icon: 5
+                                                                    });
+                                                                }
+                                                            });
+                                                            return false;
+                                                        });
+                                                    });
+            </script>
+    </body>
+</html>

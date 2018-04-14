@@ -1,0 +1,1 @@
+INSERT INTO `dede_sgpage` VALUES('1','积分充值','1','pay.html','积分充值','{style}/pay.htm','default','积分充值','1517401772','');

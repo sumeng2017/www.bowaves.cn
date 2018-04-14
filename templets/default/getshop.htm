@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>淘宝天猫店铺信息查询-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}精准查找直通车图，只需要输入对手的直通车宝贝链接和直通车关键词，即可查出对手使用的创意图。" />
+        <meta name="keywords" content="直通车图下载,查找直通车创意图,怎么查直通车图" />
+        <link href="/static/layui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/theme/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/datatable.css" >
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+        <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+        <style>
+            .layui-form-label {
+                width: auto;
+            }
+        </style>
+
+        <script language="javascript">
+            function showimg(e, sUrl) {
+                var x, y;
+                x = e.clientX;
+                y = e.clientY;
+                document.getElementById("shoppic").style.left = x + 10 + 'px';
+                document.getElementById("shoppic").style.top = y + 10 + 'px';
+                document.getElementById("shoppic").innerHTML = "<img style=\"border: 5px solid #fff\" src=\"" + sUrl + "\">";
+                document.getElementById("shoppic").style.display = "";
+            }
+            function hiddenPic() {
+                document.getElementById("shoppic").innerHTML = "";
+                document.getElementById("shoppic").style.display = "none";
+            }
+        </script>
+    </head>
+
+    <body>
+  {dede:include filename="head.htm"/} 
+  {dede:include filename="sidebar.htm"/}
+<!-- 
+        <script type="text/javascript">
+        $('[data-toggle="tooltip"]').tooltip();
+        </script>
+-->
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3> <i class="icon icon-shopping-cart"></i>
+                                        淘宝天猫店铺信息查询 <span class="label label-badge label-danger">新版</span></h3> 
+                                    <hr>
+
+                                    <div class="col-md-6">
+
+                                        <form class="layui-form" action="">
+
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">关键词</label>
+                                                    <div class="layui-input-inline">
+                                                        <input type="text" name="key" autocomplete="off" placeholder="输入要查询的关键词" class="layui-input" lay-verify="required">
+                                                    </div>
+                                                </div>
+
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">店铺类型</label>
+                                                    <div class="layui-input-inline">
+                                                        <select name="shoptype">
+                                                            <option value="">请选择店铺类型</option>
+                                                            <optgroup label="淘宝店">
+                                                                <option value="xin" selected="">心级店</option>
+                                                                <option value="zhuan">钻级店</option>
+                                                                <option value="huang">皇冠店</option>
+                                                                <option value="jin">金冠店</option>
+                                                            </optgroup>
+                                                            <optgroup label="天猫店">
+                                                                <option value="tmall">天猫店</option>
+                                                            </optgroup>
+                                                            <optgroup label="全球购">
+                                                                <option value="qqg">全球购</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">所在地</label>
+                                                    <div class="layui-input-inline">
+                                                        <input type="text" name="loc" autocomplete="off" placeholder="默认全部地区" class="layui-input">
+                                                    </div>
+                                                </div>
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">起始页码</label>
+                                                    <div class="layui-input-inline" style="width: 82px;">
+                                                        <input type="text" name="start_page" placeholder="开始页" autocomplete="off" class="layui-input" lay-verify="required">
+                                                    </div>
+                                                    <div class="layui-form-mid">-</div>
+                                                    <div class="layui-input-inline" style="width: 82px;">
+                                                        <input onchange="cknum(this);" type="text" name="end_page" placeholder="结束页" autocomplete="off" class="layui-input" maxlength="100" lay-verify="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 71%;" lay-submit="" lay-filter="*">立即查询</button>                                        </form>
+                                        <div>
+                                            <h4>
+                                                淘宝天猫店铺信息查询功能说明:</h4>
+                                            <p class="with-padding">输入关键词，选择要查询的店铺类型，即可快速采集关键词对应的所有店铺信息。</p>
+                                            <p> <i class="icon icon-info-sign"></i> 提示：使用此功能需消耗 0个 积分，VIP会员免积分使用。</p>                                            <div id="info" style="margin-top: 1.5em;font-size: 1.3em;font-weight: bold;color: #FF5722;"></div>
+                                           
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6" style="margin-top: 0em;">
+
+                                    </div>
+
+                                    <div id = "data" class="col-md-12">
+                                    </div>
+                                    <div id="shoppic" style="display: none; position: fixed; z-index: 100;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+				
+					
+{dede:include filename="footer.htm"/}
+
+
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+            <!-- DataTables -->
+            <script src="//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables.js"></script>
+            <script src="https://cdn.bootcss.com/js-url/2.5.2/url.min.js"></script>            
+            <script src="/static/JsonExportExcel.min.js"></script>
+
+            <script src="/static/admin.min.js" type="text/javascript"></script> 
+            <script>
+
+
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","getshop");
+
+}
+  },"json");
+
+
+
+
+
+
+            function cknum(obj) {
+                var sp = $("input[name='start_page']").val();
+                var ep = obj.value;
+                x = ep - sp;
+                if (x > 20) {
+                    alert('查询页数范围不能大于20页');
+                    $("input[name=" + obj.name + "]").val(null);
+                }
+            }
+
+            var handleData = null; // 用全局变量记录ajax结果
+            layui.use('form', function () {
+                var form = layui.form();
+                var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+
+                form.on('submit(getshop)', function (data) {
+                    //console.log(data.field);
+                    $.ajax({
+                        url: "/ajax/ajax_getshop.php",
+                        data: data.field,
+                        type: "post",
+                        dataType: "json",
+                        success: function (res) {
+                            if (res.err === '1') {
+                                layer.msg('查询失败，请重试！');
+                                return false;
+                            }
+                            handleData = res;
+                            var length = res.shopdata.length;
+                            // console.log(res);
+                            layer.msg('查询完成！共' + length + '个店铺。');
+                            var key = data.field.key;
+                            var info = '<p >关键词【' + key + '】本次查询结果 共' + length + '个店铺</p>';
+                            $("#info").html(info);
+                            var str = '<table id="showinfo" class="table-box table-sort dataTable"><colgroup><col width=""><col width=""><col></colgroup>';
+                            str += '<thead><tr><th>序号</th><th>店铺图标</th><th>店铺名</th><th>店铺级别</th><th>掌柜旺旺</th><th>好评率</th><th>店铺所在地</th></tr></thead><tbody>';
+                            for (var i = 0; i < length; i++) {
+                                var name = res.shopdata[i]['title'];
+                                var thumb = res.shopdata[i]['shopicon'];
+                                var thumbimg = '' + thumb + '_300x300.jpg';
+                                var ztcimg = '' + thumb + '_50x50.jpg';
+                                var url = res.shopdata[i]['shopUrl'];
+                                var nick = res.shopdata[i]['nick'];
+                                var classicon = res.shopdata[i]['classicon'];
+                                var classtxt = res.shopdata[i]['classtxt'];
+                                var loc = res.shopdata[i]['loc'];
+                                var goodrate = res.shopdata[i]['goodrate'];
+                                var cicon = '<img src="' + classicon + '" title="' + classtxt + '" >';
+                                var nameinfo = "<a target=\"_blank\" href=\"" + url + "\" onmouseout=\"hiddenPic();\" onmousemove=\"showimg(event,'" + thumbimg + "');\">" + name + "</a>";
+                                str += '<tr>' + '<td>' + (i + 1) + '</td>' + '<td><img layer-src="' + thumb + '" layer-pid="" src="' + ztcimg + '" alt="' + name + '" layer-index="0" onmouseout="hiddenPic();" onmousemove="showimg(event,\'' + thumbimg + '\');"></td>' + '<td>' + nameinfo + '</td>' + '<td>' + cicon + '</td>' + '<td>' + nick + '</td>' + '<td>' + goodrate + '</td>' + '<td>' + loc + '</td>' + '</tr>';
+                            }
+                            str += '</tbody>' + '</table>';
+                            $("#data").html(str);
+                            $("#dl").attr("class","btn showing");
+                            layer.photos({
+                                photos: '#data',
+                                anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+                            });
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            layer.closeAll(); //关闭所有层
+                            layer.alert('查询失败！<br>请检查输入字段是否有误，或稍后再试。', {
+                                icon: 5
+                            });
+                        },
+                        beforeSend: function () {
+                            layer.msg('开始查询，请耐心等待...', {
+                                time: 500
+                            }, function () {
+                                layer.load();
+                            });
+                        },
+                        complete: function () {
+                            layer.closeAll('loading'); //完成后关闭load层
+
+                            /**
+                             * 渲染数据
+                             */
+                            var lang = {
+                                "sProcessing": "处理中...",
+                                "sLengthMenu": "每页 _MENU_ 项",
+                                "sZeroRecords": "没有匹配结果",
+                                "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
+                                "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
+                                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                                "sInfoPostFix": "",
+                                "sSearch": "本地搜索：",
+                                "sUrl": "",
+                                "sEmptyTable": "暂无数据",
+                                "sLoadingRecords": "载入中...",
+                                "sInfoThousands": ",",
+                                "oPaginate": {
+                                    "sFirst": "首页",
+                                    "sPrevious": "上页",
+                                    "sNext": "下页",
+                                    "sLast": "末页",
+                                    "sJump": "跳转"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": 以升序排列此列",
+                                    "sSortDescending": ": 以降序排列此列"
+                                }
+                            };
+                            $('#showinfo').dataTable({
+                                "language": lang, //提示信息
+                                "autoWidth": false, //自适应宽度，
+                                "iDisplayLength": 20, //每页显示X条记录 
+                                "lengthMenu": [20, 40, 60],
+                                "stripeClasses": ["odd", "even"], //为奇偶行加上样式，兼容不支持CSS伪类的场合
+                                "searching": true, //是否允许Datatables开启本地搜索
+                                "paging": true, //是否开启本地分页
+                                "lengthChange": true, //是否允许产品改变表格每页显示的记录数
+                                "info": true, //控制是否显示表格左下角的信息
+                                //跟数组下标一样，第一列从0开始，这里表格初始化时，第四列默认降序
+                                "order": [0, 'asc'], //asc升序   desc降序 
+                                "aoColumnDefs": [{
+                                        "orderable": false,
+                                        "aTargets": [1, 3] // 指定列不参与排序
+                                    }],
+                                "deferRender": true, //延迟渲染
+                                // "bStateSave": true, //状态保存
+                                "bDestroy": true //清除旧数据对象
+                            });
+                        }
+                    });
+                    return false;
+                });
+            });
+            $('#dl').on('click', function () {
+                layer.msg(handleData.msg);
+                var option = {};
+                var key = $("input[name='key']").val();
+                var sp = $("input[name='start_page']").val();
+                var ep = $("input[name='end_page']").val();
+                var filename = '' + key + '_' + sp + '_' + ep + '';
+                option.fileName = filename;
+                option.datas = [
+                    {
+                        sheetData: handleData.shopdata,
+                        sheetName: 'sheet',
+                        sheetFilter: ['title', 'nick', 'classtxt', 'goodrate', 'shopUrl', 'loc'],
+                        sheetHeader: ['店铺名', '店铺旺旺', '店铺级别', '好评率', '店铺链接', '店铺地址']
+                    },
+                    {
+                        sheetData: handleData.shopdata
+                    }
+                ];
+                var toExcel = new ExportJsonExcel(option);
+                toExcel.saveExcel();
+            });
+            </script>
+    </body>
+</html>

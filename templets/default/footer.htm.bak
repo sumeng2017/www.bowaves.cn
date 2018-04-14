@@ -1,0 +1,107 @@
+                 <ol class="breadcrumb" style="padding-top: 60px;">
+		<li><a href="#"><i class="icon icon-cogs"></i> 淘口令补单神器</a></li>
+</ol>
+   
+ <div class="row">
+ <div class="col-lg-4 col-md-6">
+  	<div class="panel shadow">
+  	<a href="{dede:type typeid='12'}[field:typelink/]{/dede:type}">
+ 	 	<div class="panel-body">
+ 		 	<h3 class="text-red">直通车卡首屏 (VIP版) 成功率99% <i class="icon icon-heart"></i> <i class="icon icon-heart"></i> <i class="icon icon-heart"></i> <i class="icon icon-heart"></i> <i class="icon icon-heart"></i></h3>
+ 		 	<hr>
+ 			 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+ 			 	    <img src="/img/icon/ztcksp.png" class="img-responsive center-block">
+ 			 	</div>
+ 			 	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+ 			 		<p>真正的直通车卡首屏淘口令成功率99%，提交商品链接和直通车关键词之后自动匹配人群标签，生成直通车卡首屏淘口令。1~2天快速提升直通车计划权重，10分不难。</p>
+ 			 	</div>
+ 	 	</div>
+ 	 </a>
+  	</div>
+ </div>
+
+ <div class="col-lg-4 col-md-6">
+    <div class="panel shadow">
+    <a href="{dede:type typeid='18'}[field:typelink/]{/dede:type}">
+    <div class="panel-body">
+      <h3 class="text-red">手淘首页流量 <i class="icon icon-heart"></i> <i class="icon icon-heart"></i> <i class="icon icon-heart"></i> <i class="icon icon-heart"></i> <i class="icon icon-heart-empty"></i></h3>
+      <hr>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <img src="/img/icon/stsy.png" class="img-responsive center-block">
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+          <p>手淘首页的主要流量来源是手淘首页的“猜你喜欢”，猜你喜欢的构成是淘宝的个性化推荐，包含免费推荐及付费推荐。此功能可以帮助你快速得到手淘首页的流量来源。</p>
+        </div>
+    </div>
+   </a>
+    </div>
+ </div>
+
+ <div class="col-lg-4 col-md-6">
+    <div class="panel shadow">
+    <a href="{dede:type typeid='14'}[field:typelink/]{/dede:type}">
+    <div class="panel-body">
+      <h3>任意关键词卡首屏</h3>
+      <hr>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <img src="/img/icon/ksp.png" class="img-responsive center-block">
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+          <p>使用任意关键词+商品链接生成卡首屏淘口令，通过淘口令进行传播，将指定的宝贝通过关键词搜索显示在手机淘宝搜索页面首屏，快速精准补单做销量，提升搜索权重。</p>
+        </div>
+    </div>
+   </a>
+    </div>
+ </div>
+
+<!-- <div class="col-lg-4 col-md-6">
+  	<div class="panel shadow">
+  	<a href="cnxh.php">
+ 	 	<div class="panel-body">
+ 		 	<h3>猜你喜欢入口生成</h3>
+ 		 	<hr>
+ 			 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+ 			 	    <img src="/img/icon/cnxh.png" class="img-responsive center-block" alt="响应式图片测试">
+ 			 	</div>
+ 			 	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+ 			 		<p>提升手淘首页流量的最佳途径，通过指定商品链接制作猜你喜欢流量入口的淘口令，方便快速的提升手淘首页的流量和更加快速的入池。</p>
+ 			 	</div>
+ 	 	</div>
+ 	 </a>
+  	</div>
+ </div> -->
+
+ <div class="col-lg-4 col-md-6">
+  	<div class="panel shadow">
+  	<a href="{dede:type typeid='19'}[field:typelink/]{/dede:type}">
+ 	 	<div class="panel-body">
+ 		 	<h3>刷人群标签</h3>
+ 		 	<hr>
+ 			 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+ 			 	    <img src="/img/icon/srq.png" class="img-responsive center-block" alt="响应式图片测试">
+ 			 	</div>
+ 			 	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+ 			 		<p>全网首家针对手淘人群流量入口精准补单，通过官方提供的客户端查询宝贝标签，然后在此选择相应的人群标签补单。</p>
+ 			 	</div>
+ 	 	</div>
+ 	 </a>
+  	</div>
+ </div> 
+
+ <div class="col-lg-4 col-md-6">
+  	<div class="panel shadow">
+  	<a href="tly.php">
+ 	 	<div class="panel-body">
+ 		 	<h3>手淘流量入口生成</h3>
+ 		 	<hr>
+ 			 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+ 			 	    <img src="/img/icon/tly.png" class="img-responsive center-block" alt="响应式图片测试">
+ 			 	</div>
+ 			 	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+ 			 		<p>首创来源内部接口更加个性化的补单方案，提供更多的流量来源入口，多样化补单首选。</p>
+ 			 	</div>
+ 	 	</div>
+ 	 </a>
+  	</div>
+ </div> 
+</div></div>

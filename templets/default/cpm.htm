@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>手机淘宝无线端关键词查宝贝排名-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}精准查找直通车图，只需要输入对手的直通车宝贝链接和直通车关键词，即可查出对手使用的创意图。" />
+        <meta name="keywords" content="直通车图下载,查找直通车创意图,怎么查直通车图" />
+        <link href="/static/layui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/theme/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/datatable.css" >
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+        <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+        <style>
+            .layui-form-label {
+                width: auto;
+            }
+        </style>
+
+        <script language="javascript">
+            function showimg(e, sUrl) {
+                var x, y;
+                x = e.clientX;
+                y = e.clientY;
+                document.getElementById("shoppic").style.left = x + 10 + 'px';
+                document.getElementById("shoppic").style.top = y + 10 + 'px';
+                document.getElementById("shoppic").innerHTML = "<img style=\"border: 5px solid #fff\" src=\"" + sUrl + "\">";
+                document.getElementById("shoppic").style.display = "";
+            }
+            function hiddenPic() {
+                document.getElementById("shoppic").innerHTML = "";
+                document.getElementById("shoppic").style.display = "none";
+            }
+        </script>
+    </head>
+
+    <body>
+  {dede:include filename="head.htm"/} 
+  {dede:include filename="sidebar.htm"/}
+<!-- 
+        <script type="text/javascript">
+        $('[data-toggle="tooltip"]').tooltip();
+        </script>
+-->
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3> <i class="icon icon-search"></i>
+                                        手机淘宝无线端关键词查宝贝排名 <span class="label label-badge label-danger">新年贺礼！全网独家可查无线端排名</span></h3> 
+                                    <hr>
+
+                                    <div class="col-md-6">
+
+                                        <form class="layui-form" action="">
+                                            <div class="layui-form-item" pane="">
+                                                <label class="layui-form-label">搜索接口</label>
+                                                <div class="layui-input-block">
+                                                    <input lay-filter="so" type="radio" name="so" value="m" title="手机淘宝" checked="">
+<!--                                                    <input lay-filter="so" type="radio" name="so" value="pc" title="电脑端">-->
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item" pane="">
+                                                <label class="layui-form-label">查询模式</label>
+                                                <div class="layui-input-block">
+                                                    <input lay-filter="mod" type="radio" name="mod" value="id" title="单品查询" checked="">
+                                                    <input lay-filter="mod" type="radio" name="mod" value="shop" title="店铺查询">
+                                                    <input lay-filter="mod" type="radio" name="mod" value="all" title="全网查询">                                                    
+                                                    <input lay-filter="mod" type="radio" name="mod" value="pro" title="千人千面">
+
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item" pane="">
+                                                <label class="layui-form-label">排序方式</label>
+                                                <div class="layui-input-block">
+                                                    <input type="radio" name="sort" value="_coefp" title="综合排序" checked="">
+                                                    <input type="radio" name="sort" value="_sale" title="销量优先">
+                                                </div>
+                                            </div>
+
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">查询范围</label>
+                                                    <div class="layui-input-inline">
+                                                        <select name="page">
+                                                            <option value="">请选择查询范围</option>
+                                                            <option value="5" selected="">前5页</option>
+                                                            <option value="10">前10页</option>
+                                                            <option value="20">前20页</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">云服务器</label>
+                                                    <div class="layui-input-inline">
+                                                        <select name="serv">
+                                                            <option value="">请选择省</option>
+                                                            <option value="sz" selected="">深圳</option>
+                                                            <!--                                                            <option value="gd">北京</option>
+                                                                                                                        <option value="sh">上海</option>
+                                                                                                                        <option value="gz">广州</option>                                                                
+                                                                                                                        <option value="zj">浙江</option>
+                                                                                                                        <option value="js">江苏</option>-->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <label class="layui-form-label">关键词</label>
+                                                <div class="layui-input-block">
+                                                    <input type="text" name="key" autocomplete="off" placeholder="输入要查询的宝贝关键词" class="layui-input" lay-verify="required">
+                                                </div>
+                                            </div>
+                                            <div id="mods">
+                                                <div class="layui-form-item">
+                                                    <label class="layui-form-label">宝贝ID</label>
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name="id" onchange="get_id(this);" autocomplete="off" placeholder="输入宝贝ID 或 宝贝链接" class="layui-input" lay-verify="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">立即查询</button>                                        </form>
+                                        <div>
+                                            <h4>
+                                                手机淘宝无线端关键词查宝贝排名功能说明:</h4>
+                                            <p class="with-padding hl-green">最新淘宝内部超级搜索接口高效查询移动端和电脑端的宝贝排名，排除个性化因素，查询更精准。</p>
+                                           <p> <i class="icon icon-info-sign"></i> 提示：使用此功能需消耗 {dede:global.cpm/}个 积分。VIP免积分使用！</p>                                   </div>
+
+                                    </div>
+                                    <div class="col-md-6" style="margin-top: 0em;">
+                                        <div class="panel-group" id="accordionPanels" aria-multiselectable="true">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordionPanels" href="#collapse" class=""> <strong class="text-red">为什么{dede:global.cfg_webname/}还能查无线端排名？别的地方都查不了无线端排名了</strong>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse" class="panel-collapse in" style="height: auto;">
+                                                    <div class="panel-body">
+                                                        <span class="text-red">
+                                                            1、自从2017年12月27日淘宝无线端接口调整后，市面上所有查排名的工具都已经无法使用了。</a>
+                                                            <br>
+                                                            2、{dede:global.cfg_webname/}第一时间拿到了最新的淘宝内部超级搜索接口，可以说目前除了淘宝之外只有{dede:global.cfg_webname/}可以查询无线端排名。
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="headingTwo">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#collapseTwo">为什么要使用查排名 ？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseTwo" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        我们做宝贝推广时，需要<span class="text-red">实时关注宝贝排名变化</span>以监测推广效果，通常我们只能去淘宝搜索页一页一页的翻查，如果宝贝排名靠后，会耗费大量时间，查找过程也很痛苦。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="headingMod">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#collapseMod">单品查询、店铺查询、全网查询有什么区别？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseMod" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <p><span class="text-red">单品查询：</span>只显示你的宝贝（只列出指定指定宝贝查出指定宝贝在搜索结果中的位置和排名情况。）</p>
+                                                        <p><span class="text-red">店铺查询：</span>只显示你店铺下的宝贝（根据关键词列出店铺下的所有宝贝在搜索结果中的位置和排名情况。）</p>
+                                                        <p><span class="text-red">全网查询：</span>关键词在无线端中的搜索结果全部展示出来，不过滤宝贝和店铺。可以看到所有同行宝贝是谁排在你的前面，你也可以通过本地搜索对结果进行筛选查询。</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="headingThree">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#collapseThree">和其它查排名工具相比，我们有什么不同？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <p>由于淘宝的搜索规则会根据个人的浏览习惯、购买记录、所在地域等展示出个性化结果，因此我们搜索自己常关注的宝贝时排名一定是靠前的，我们把这种搜索模式定义为“我的电脑”，<span class="text-red">这种搜索结果并不是宝贝的真实排名，带有超强的主观性，对于排名监控没有任何帮助！</span>
+                                                        </p>
+                                                        <p><span class="text-red">市面上的搜索工具几乎全部使用“我的电脑”搜索模式</span>（不耗资源，还能与我们的电脑看到的结果一模一样，造成查询精准的假象）；</p>
+                                                        <p><span class="text-red">{dede:global.cfg_webname/}提供了云服务器搜索模式</span>，它模拟了无痕用户的搜索结果，完全排除个性化因素的影响，展现出客观真实的排名，这才是我们正真需要的结果。目前只开了深圳云服务器，后续将开放更多云服务器。</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" id="headingpage">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPanels" href="#collapsepage">为什么最大只能查前20页？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapsepage" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        是的，如果<span class="text-red">前20页都查不到你的关键词排名</span>，查后面页数又有什么意义呢？说明你的宝贝关键词权重很低了，<span class="text-red">应该想办法提升关键词权重了</span>。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id = "data" class="col-md-12">
+                                    </div>
+                                    <div id="shoppic" style="display: none; position: fixed; z-index: 100;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+{dede:include filename="footer.htm"/}
+
+
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+            <!-- DataTables -->
+            <script src="//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables.js"></script>
+            <script src="https://cdn.bootcss.com/js-url/2.5.2/url.min.js"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script> 
+            <script>
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","cpm_new");
+
+}
+  },"json");
+
+
+                                                            function get_id(obj) {
+                                                                var url_id = obj.value;
+                                                                if (!isNaN(url_id)) {
+                                                                } else {
+                                                                    id = url('?id', url_id);
+                                                                    $("input[name=" + obj.name + "]").val(id);
+                                                                    //console.log(id);
+                                                                }
+                                                            }
+                                                            function get_nick(obj) {
+                                                                var nick = obj.value.toLowerCase();
+                                                                if (nick.indexOf("http") >= 0) {
+                                                                    id = url('?id', obj.value);
+                                                                    var postdata = {
+                                                                        id: id
+                                                                    };
+                                                                    $.ajax({
+                                                                        type: "post",
+                                                                        url: 'ajax/ajax_getnick.php',
+                                                                        data: postdata,
+                                                                        dataType: "json",
+                                                                        success: function (res) {
+                                                                            if (res.err === '1') {
+                                                                                layer.msg(res.msg);
+                                                                                $("input[name=" + obj.name + "]").val(null);
+                                                                            } else {
+                                                                                layer.msg(res.msg);
+                                                                                $("input[name=" + obj.name + "]").val(res.nick);
+                                                                            }
+                                                                        }
+                                                                    });
+
+                                                                }
+
+                                                            }
+
+                                                            layui.use('form', function () {
+                                                                var form = layui.form();
+                                                                var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+
+                                                                form.on('radio(so)', function (data) {
+                                                                    //console.log(data.elem); //得到radio原始DOM对象
+                                                                    console.log(data.value); //被点击的radio的value值
+                                                                });
+                                                                form.on('radio(mod)', function (data) {
+                                                                    //console.log(data.elem); //得到radio原始DOM对象
+                                                                    console.log(data.value); //被点击的radio的value值
+                                                                    mod = data.value;
+                                                                    //$url_id = document.getElementById("url_id");
+                                                                    //$shop_id = document.getElementById("shop_id");
+                                                                    switch (mod) {
+                                                                        case 'id':
+                                                                            //layer.msg(mod);
+                                                                            var str = '<div class="layui-form-item"> <label class="layui-form-label">宝贝链接</label> <div class="layui-input-block"> <input type="text" name="id" onchange="get_id(this);" autocomplete="off" placeholder="输入宝贝ID 或 宝贝链接" class="layui-input" lay-verify="required"> </div> </div>';
+                                                                            $("#mods").html(str);
+                                                                            break;
+                                                                        case 'shop':
+                                                                            //layer.msg(mod);
+                                                                            var str = '<div class="layui-form-item"> <label class="layui-form-label">店铺旺旺</label> <div class="layui-input-block"> <input type="text" name="shop_nick" onchange="get_nick(this);" autocomplete="off" placeholder="输入店铺旺旺 或 该店铺下任意宝贝链接" class="layui-input" lay-verify="required"> </div> </div>'
+                                                                            $("#mods").html(str);
+                                                                            break;
+                                                                        case 'all':
+                                                                            //layer.msg(mod);
+                                                                            var str = '';
+                                                                            $("#mods").html(str);
+                                                                            break;
+                                                                        case 'pro':
+                                                                            //layer.msg(mod);
+                                  window.location.href="{dede:type typeid='7'}[field:typelink/]{/dede:type}"; 
+                                                                            //var str = '';
+                                                                            //$("#mods").html(str);
+                                                                            break;
+                                                                        default:
+                                                                            break;
+                                                                    }
+                                                                });
+
+                                                                form.on('submit(cpm_new)', function (data) {
+                                                                    console.log(data.field);
+                                                                    $.ajax({
+                                                                        url: "/ajax/ajax_cpm.php",
+                                                                        data: data.field,
+                                                                        type: "post",
+                                                                        dataType: "json",
+                                                                        success: function (res) {
+                                                                            if (res.err === '1') {
+                                                                                layer.msg('查询失败，请重试！', {time: 2000, });
+                                                                                return false;
+                                                                            }
+
+                                                                            var length = res.goodsdata.length;
+                                                                            // console.log(res);
+                                                                            layer.msg('查询完成！共' + length + '个宝贝。');
+                                                                            //var start_page = data.field.start_page;
+                                                                            //var end_page = data.field.end_page;
+                                                                            var key = data.field.key;
+                                                                            var page_unm = data.field.page;
+                                                                            var so = data.field.so;
+                                                                            var mod = data.field.mod;
+                                                                            switch (so) {
+                                                                                case 'm':
+                                                                                    so = '手机淘宝端';
+                                                                                    break;
+                                                                                case 'pc':
+                                                                                    so = '电脑端';
+                                                                                    break;
+                                                                            }
+                                                                            switch (mod) {
+                                                                                case 'id':
+                                                                                    mod = '单品查询';
+                                                                                    break;
+                                                                                case 'shop':
+                                                                                    mod = '店铺查询';
+                                                                                    break;
+                                                                                case 'all':
+                                                                                    mod = '全网查询';
+                                                                                    break;
+                                                                            }
+                                                                            // console.log(channel);
+                                                                            var info = '' + so + ' ' + mod + '关键词 【' + key + '】 在前' + page_unm + '页，共' + length + '个宝贝';
+                                                                            var str = '<div class="site-title"><p style="font-size: 1.3em;font-weight: bold;color: #FF5722;">' + so + '' + mod + '关键词【' + key + '】在前' + page_unm + '页，共' + length + '个宝贝</p></div>' + '<table id="showinfo" class="table-box table-sort dataTable">' + '<colgroup>' + '<col width="">' + '<col width="">' + '<col>' + '</colgroup>' + '<thead>' + '<tr>' + '<th>序号</th>' + '<th>主图</th>' + '<th>宝贝标题</th>' + '<th>价格</th>' + '<th>销量</th>' + '<th>发货地</th>' + '<th>店铺旺旺</th>' + '<th>位置</th>' + '<th>排名</th>' + '</tr> ' + '</thead>' + '<tbody>';
+                                                                            for (var i = 0; i < length; i++) {
+                                                                                var name = res.goodsdata[i]['title'];
+                                                                                var thumb = res.goodsdata[i]['pic'];
+                                                                                var thumbimg = '' + thumb + '_300x300.jpg';
+                                                                                var ztcimg = '' + thumb + '_50x50.jpg';
+                                                                                var price = res.goodsdata[i]['price'];
+                                                                                var id = res.goodsdata[i]['id'];
+                                                                                var url = res.goodsdata[i]['url'];
+                                                                                var nick = res.goodsdata[i]['nick'];
+                                                                                var sale = res.goodsdata[i]['sale'];
+                                                                                var rank = res.goodsdata[i]['rank'];
+                                                                                var loc = res.goodsdata[i]['loc'];
+                                                                                var isB2c = res.goodsdata[i]['isB2c'];
+                                                                                var pm = res.goodsdata[i]['pm'];
+
+                                                                                var nameinfo = "<a target=\"_blank\" href=\"" + url + "\" onmouseout=\"hiddenPic();\" onmousemove=\"showimg(event,'" + thumbimg + "');\">" + name + "</a>";
+                                                                                // <img layer-src="' + thumb + '" layer-pid="" src="' + ztcimg + '" alt="'+name+'" layer-index="0">
+                                                                                str += '<tr>' + '<td>' + (i + 1) + '</td>' + '<td><img layer-src="' + thumb + '" layer-pid="" src="' + ztcimg + '" alt="' + name + '" layer-index="0" onmouseout="hiddenPic();" onmousemove="showimg(event,\'' + thumbimg + '\');"></td>' + '<td>' + nameinfo + '</td>' + '<td>¥' + price + '</td>' + '<td>' + sale + '</td>' + '<td>' + loc + '</td>' + '<td>' + nick + '</td>' + '<td>' + rank + '</td>' + '<td>' + pm + '</td>' + '</tr>';
+                                                                            }
+                                                                            str += '</tbody>' + '</table>';
+                                                                            $("#data").html(str);
+                                                                            layer.photos({
+                                                                                photos: '#data'
+                                                                                , anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+                                                                            });
+                                                                        },
+                                                                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                                                            layer.closeAll(); //关闭所有层
+                                                                            layer.alert('查询失败！<br>请检查输入字段是否有误，或稍后再试。', {
+                                                                                icon: 5
+                                                                            });
+                                                                        },
+                                                                        beforeSend: function () {
+                                                                            layer.msg('开始查询，请耐心等待...', {
+                                                                                time: 500
+                                                                            }, function () {
+                                                                                layer.load();
+                                                                            });
+                                                                        },
+                                                                        complete: function () {
+                                                                            layer.closeAll('loading'); //完成后关闭load层
+
+                                                                            /**
+                                                                             * 渲染数据
+                                                                             */
+                                                                            var lang = {
+                                                                                "sProcessing": "处理中...",
+                                                                                "sLengthMenu": "每页 _MENU_ 项",
+                                                                                "sZeroRecords": "没有匹配结果",
+                                                                                "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
+                                                                                "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
+                                                                                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                                                                                "sInfoPostFix": "",
+                                                                                "sSearch": "本地搜索：",
+                                                                                "sUrl": "",
+                                                                                "sEmptyTable": "暂无数据",
+                                                                                "sLoadingRecords": "载入中...",
+                                                                                "sInfoThousands": ",",
+                                                                                "oPaginate": {
+                                                                                    "sFirst": "首页",
+                                                                                    "sPrevious": "上页",
+                                                                                    "sNext": "下页",
+                                                                                    "sLast": "末页",
+                                                                                    "sJump": "跳转"
+                                                                                },
+                                                                                "oAria": {
+                                                                                    "sSortAscending": ": 以升序排列此列",
+                                                                                    "sSortDescending": ": 以降序排列此列"
+                                                                                }
+                                                                            };
+                                                                            $('#showinfo').dataTable({
+                                                                                "language": lang, //提示信息
+                                                                                "autoWidth": false, //自适应宽度，
+                                                                                "iDisplayLength": 20, //每页显示X条记录 
+                                                                                "lengthMenu": [20, 40, 60],
+                                                                                "stripeClasses": ["odd", "even"], //为奇偶行加上样式，兼容不支持CSS伪类的场合
+                                                                                "searching": true, //是否允许Datatables开启本地搜索
+                                                                                "paging": true, //是否开启本地分页
+                                                                                "lengthChange": true, //是否允许产品改变表格每页显示的记录数
+                                                                                "info": true, //控制是否显示表格左下角的信息
+                                                                                //跟数组下标一样，第一列从0开始，这里表格初始化时，第四列默认降序
+                                                                                "order": [0, 'asc'], //asc升序   desc降序 
+                                                                                "aoColumnDefs": [{
+                                                                                        "orderable": false,
+                                                                                        "aTargets": [1, 3] // 指定列不参与排序
+                                                                                    }],
+                                                                                "deferRender": true, //延迟渲染
+                                                                                // "bStateSave": true, //状态保存
+                                                                                "bDestroy": true //清除旧数据对象
+                                                                            });
+                                                                        }
+                                                                    });
+                                                                    return false;
+                                                                });
+                                                            });
+            </script>
+    </body>
+</html>

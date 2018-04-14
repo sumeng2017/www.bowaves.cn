@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>积分充值-我的网站</title>
+
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+    </head>
+
+    <body>
+        <div class="main">
+            <header class="header">
+    <div class="header-left">
+        <div class="sidebar-toggle"><i class="icon icon-bars"></i></div>
+        <div class="logo">我的网站</div>
+    </div>
+    <!-- 左侧的导航项目 -->
+    <ul class="nav navbar-nav visible-lg" style="padding: 10px 0; ">
+        <li> <a href="/" title="首页">首页</a> </li> 
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="小号分析"> 小号分析 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/plus/list.php?tid=6"><i class="icon icon-book"></i> 关键词查权重 </a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=7"><i class="icon icon-search"></i> 千人千面排名查询</a></li>
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=8"><i class="icon icon-umbrella"></i> 买家帐号深度分析</a></li>
+            </ul>
+        </li>
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="直通车神器"> 直通车神器 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/plus/list.php?tid=12"><i class="icon icon-bullseye"></i> 直通车卡首屏 <span class="label label-badge label-danger">VIP</span></a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=13"><i class="icon icon-leaf"></i> 直通车图下载</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="淘口令补单神器"> 淘口令补单神器 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/plus/list.php?tid=14"><i class="icon icon-flag-checkered"></i> 卡首屏淘口令</a></li>
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=15"><i class="icon icon-sitemap"></i> 类目卡位淘口令 <span class="label label-badge label-danger">VIP</span></a></li>
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=16"><i class="icon icon-leaf"></i> 卡同行淘口令</a></li>
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=17"><i class="icon icon-pushpin"></i> 直通车卡首屏</a></li>
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=18"><i class="icon icon-arrow-up"></i> 手淘首页淘口令</a></li>
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=19"><i class="icon icon-group"></i> 生活研究所淘口令</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown active"><!-- 导航中的下拉菜单 -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="手淘流量入口"> 手淘流量入口 <b class="caret"></b> </a> 
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/plus/list.php?tid=20">有好货</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">手淘网红集合</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">手淘清仓流量</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">中国质造</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">极有家</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">手机钻展</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">淘抢购</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">每日好店</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">必买清单</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">亲宝贝</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">手淘ifashion</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">潮玩城</a></li> 
+                <li class="divider"></li>
+                <li><a href="/plus/list.php?tid=20">天天特价</a></li> 
+            </ul>
+        </li>
+        
+      
+    </ul>
+    <!-- 右侧的导航项目 -->
+    <ul class="nav navbar-nav navbar-right header-user" style="padding: 10px 0; ">
+
+        <li class="hidden-xs">
+            <a href="#"> 
+                <span id="user">欢迎你，user</span>
+            </a>
+        </li>
+        <li class="hidden-xs">
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;uin=709600600&amp;subcmd=all&amp;website=shengyicanmou.com" target="_blank"> <i class="icon icon-qq"></i>
+                <span>在线咨询</span>
+            </a>
+        </li>
+        <li id="login">
+            <a href="javascript:;" class="login"> <i class="icon icon-user"></i> <span>登录/注册</span> </a>         </li>
+    </ul>
+</header>
+
+
+<script type="text/javascript">
+$(function() {
+layui.use('layer', function() {　　 //公告层
+layer.open({
+type: 1,
+title: false, //不显示标题栏
+// title :'站长推荐',
+closeBtn: 1,
+area: ['300px', '200px'],
+shade: 0,
+offset: 'rb',
+id: 'LAY_layuipro1', //设定一个id，防止重复弹出
+// btn: ['OK', '知道了'],
+moveType: 1,//拖拽模式，0或者1 
+content: '<a href="http://qly360.com/extension/weiyou.html" target="_blank"><img src="img/wycrm.jpg"></a>', 
+});　
+});
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['M_ID'] > 0){
+
+$("#login").html('<a href="/member/index_do.php?fmdo=login&dopost=exit#"> <i class="icon icon-signout"></i> <span>退出</span> </a>');
+$("#user").html('欢迎你，'+data['userid']);
+
+}
+
+
+
+  },"json");
+
+
+
+});
+</script>
+
+
+
+
+
+
+<aside class="sidebar">
+  <div class="sidebar-menu">
+
+    <div class="item active">
+      <a href="/">
+        <i class="icon icon-home"></i>
+        <span>首页</span></a>
+    </div>
+
+    <div class="item">
+      <a href="/plus/list.php?tid=1">
+        <i class="icon icon-trophy"></i>
+        <span>魔搜卡位</span>
+        <span class="label label-badge label-danger">VIP</span></a>
+    </div>
+    <div class="item">
+      <a href="/plus/list.php?tid=2">
+        <i class="icon icon-newspaper-o"></i>
+        <span>验号中心</span>
+        <span class="label label-badge label-danger">VIP</span></a>
+    </div>
+    <div class="item">
+      <a href="/plus/list.php?tid=3">
+        <i class="icon icon-search"></i>
+        <span>无线端查排名</span>
+        <span class="label label-badge label-danger">新版</span></a>
+    </div>
+    <div class="item">
+      <a href="/plus/list.php?tid=4">
+        <i class="icon icon-shopping-cart"></i>
+        <span>店铺信息查询</span>
+        <span class="label label-badge label-danger">新版</span></a>
+    </div>
+    <div class="item vertical open">
+      <a href="#">
+        <i class="icon icon-bar-chart-alt"></i>
+        <span>小号分析
+          <span class="label label-badge label-danger">VIP</span></span>
+        <span class="arrow"></span>
+      </a>
+      <div class="vertical-menu">
+        <a href="/plus/list.php?tid=6">
+          <i class="icon icon-book"></i>关键词权重查询</a>
+        <a href="/plus/list.php?tid=7">
+          <i class="icon icon-search"></i>千人千面排名查询</a>
+        <a href="/plus/list.php?tid=8">
+          <i class="icon icon-umbrella"></i>买家账号深度分析</a>
+      </div>
+    </div>
+    <div class="item vertical open">
+      <a href="#">
+        <i class="icon icon-cogs"></i>
+        <span>直通车神器</span>
+        <span class="arrow"></span>
+      </a>
+      <div class="vertical-menu">
+        <a href="/plus/list.php?tid=12">
+          <i class="icon icon-bullseye"></i>直通车卡首屏
+          <span class="label label-badge label-danger">VIP</span></a>
+        <a href="/plus/list.php?tid=13">
+          <i class="icon icon-picture"></i>直通车图下载</a>
+      </div>
+    </div>
+    <div class="item vertical open">
+      <a href="#">
+        <i class="icon icon-cogs"></i>
+        <span>淘口令补单神器</span>
+        <span class="arrow"></span>
+      </a>
+      <div class="vertical-menu">
+        <a href="/plus/list.php?tid=14">
+          <i class="icon icon-flag-checkered"></i>卡首屏淘口令
+          <span class="label label-badge label-danger">新版</span></a>
+        <a href="/plus/list.php?tid=15">
+          <i class="icon icon-sitemap"></i>类目卡位淘口令
+          <span class="label label-badge label-danger">VIP</span></a>
+        <a href="/plus/list.php?tid=16">
+          <i class="icon icon-leaf"></i>卡同行淘口令</a>
+        <a href="/plus/list.php?tid=17">
+          <i class="icon icon-pushpin"></i>直通车卡首屏</a>
+        <a href="/plus/list.php?tid=18">
+          <i class="icon icon-arrow-up"></i>手淘首页淘口令</a>
+        <a href="/plus/list.php?tid=19">
+          <i class="icon icon-group"></i>生活研究所淘口令</a>
+        <a href="/plus/list.php?tid=20">
+          <i class="icon icon-random"></i>手淘流量入口淘口令</a>
+      </div>
+    </div>
+    <div class="item vertical open">
+      <a href="#">
+        <i class="icon icon-server"></i>
+        <span>数据挖掘</span>
+        <span class="arrow"></span>
+      </a>
+      <div class="vertical-menu">
+        <a href="/plus/list.php?tid=21">
+          <i class="icon icon-book"></i>淘词神器</a>
+        <a href="/plus/list.php?tid=22">
+          <i class="icon icon-tags"></i>天猫挖词</a>
+        <a href="/plus/list.php?tid=23">
+          <i class="icon icon-sitemap"></i>类目查询</a>
+      </div>
+    </div>
+  </div>
+  <p class="with-padding" style="color: #8b9199;">
+  ©
+    <a href="http://shengyicanmou.com/">参谋网</a>All Rights Reserved.
+  </p></aside>
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3><i class="icon icon-credit"></i> 积分充值</h3>
+                                    <hr>
+                                    <div class="col-md-6 col-lg-4 col-md-offset-0">
+                                        <div class="card">
+
+                                            <div class="alert alert-success" style="text-align: center;">
+                                                <h1>普通会员（积分制） </h1>
+                                                <p>适用于初级小商家补单量比较少，按需充值即可。</p>
+
+                                                <p>充值1元=1积分</p>
+
+                                            </div><div style="text-align: center;">
+                                                <p>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn" data-toggle="collapse" data-target="#zfb"><strong class="text-blue"><i class="icon-zhifubao-square"></i> 支付宝充值</strong></button>
+                                                    <button type="button" class="btn" data-toggle="collapse" data-target="#wx"><strong class="text-green"><i class="icon icon-wechat"></i>  微信充值 </strong></button>
+                                                </div>
+                                                </p>
+                                                <hr>
+                                                <div class="collapse" id="zfb">
+                                                    <div class="bg- with-padding">
+                                                        <img src="img/sycm/zfb.png" data-toggle="lightbox" data-caption="支付宝支付">
+                                                        <h3 class="with-padding text-red">请 50元 起充</h3>
+                                                        <p class="with-padding"><strong class="text-red"><i class="icon icon-info-sign"></i> 转帐时请务必添加留言，填写你的用户名 </strong></p>
+                                                        <p class="with-padding hl-green">如错填、漏填或长时间积分未发生变化，请在支付完成后，<br>截屏并联系 <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;uin=709600600&amp;subcmd=all&amp;website=shengyicanmou.com" target="_blank"><i class="icon icon-qq"></i> 709600600</a></p>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse" id="wx">
+                                                    <div class="bg- with-padding">
+                                                        <img src="img/sycm/wx.png" data-toggle="lightbox" data-caption="微信支付">
+                                                        <h3 class="with-padding text-red">请 50元 起充</h3>
+                                                        <p class="with-padding"><strong class="text-red"><i class="icon icon-info-sign"></i> 转帐时请务必添加留言，填写你的用户名 </strong></p>
+                                                        <p class="with-padding hl-green">如错填、漏填或长时间积分未发生变化，请在支付完成后，<br>截屏并联系 <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;uin=709600600&amp;subcmd=all&amp;website=shengyicanmou.com" target="_blank"><i class="icon icon-qq"></i> 709600600</a></p>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-content text-muted">
+                                                <table class="table table-borderless table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>功能</th>
+                                                            <th>所需积分</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="text-red">
+                                                            <td><del>魔搜卡位</del> <span class="label label-badge label-danger">new</span></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td><del>千人千面查排名</del> <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td><del>关键词权重查询</del> <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td><del>买家帐号深度分析</del> <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>                    
+                                                        <tr class="text-red">
+                                                            <td><del>验号中心防P图</del><span class="label label-badge label-danger">独家</span></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>                                                        
+                                                        <tr class="text-red">
+                                                            <td><del>直通车卡首屏VIP版</del></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td><del>直通车图下载VIP版</del></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td><del>卡类目淘口令</del></td>
+                                                            <td>VIP权限</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>无线端查排名 <span class="label label-badge label-danger">new</span></td>
+                                                            <td>0 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>直通车图下载</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>卡首屏淘口令</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>卡同行淘口令</td>
+                                                            <td>1 积分</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>直通车卡条件</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘首页淘口令</td>
+                                                            <td>1 积分</td>
+                                                        </tr>        
+                                                        <tr>
+                                                            <td>有好货</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘网红集合</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘清仓流量</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>中国质造</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>极有家</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手机钻展</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>淘抢购</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>每日好店</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>必买清单</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>亲宝贝</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘ifashion</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>潮玩城</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>天天特价</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>淘词神器</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>天猫挖词</td>
+                                                            <td>1 积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>类目查询</td>
+                                                            <td>0 积分</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6 col-lg-4 col-md-offset-0">
+                                        <div class="card">
+
+                                            <div class="alert alert-primary-inverse" style="text-align: center;">
+                                                <h1><i class="icon icon-diamond icon-2x"></i> VIP会员（免积分） </h1>
+                                                <p>适用于需要直通车神器补单补点击的高级商家。</p>
+                                                <p>相当于 ¥1.8/天 无限生成</p>
+
+                                            </div><div style="text-align: center;">
+                                                <p>
+                                                    <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#vip"><strong><i class="icon icon-diamond"></i>  双击 666 升级VIP会员 </strong></button>
+                                                </p>
+                                                <hr>
+                                                <div class="collapse" id="vip">
+
+                                                    <div class="bg- with-padding">
+                                                        <table class="table table-borderless table-hover">
+                                                            <thead>
+                                                                <tr class="success">
+                                                                    <th>级别</th>
+                                                                    <th>使用期限</th>
+                                                                    <th>VIP费用</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>VIP1</td>
+                                                                    <td>1年</td>
+                                                                    <td>￥666</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>VIP2</td>
+                                                                    <td>永久</td>
+                                                                    <td>￥1998</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <hr>
+                                                        <h3 class="text-red">如需开通VIP会员，请联系QQ <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;uin=709600600&amp;subcmd=all&amp;website=shengyicanmou.com" target="_blank"><i class="icon icon-qq"></i> 709600600</a></h3>
+                                                        <small class="with-padding">更多新功能将持续上线，价格也不定期调整。</small><br>                                             
+                                                        <small class="with-padding">直通车卡首屏 授权2个店铺，其它功能不限。</small> <br>                                                       
+                                                        <small class="with-padding">魔搜卡位 VIP用户每日限额1万个帐号导入，不定时下调，早加入早享用。</small>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="card-content text-muted">
+                                                <table class="table table-borderless table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>功能</th>
+                                                            <th>所需积分</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="text-red">
+                                                            <td>魔搜卡位 <span class="label label-badge label-danger">new</span></td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td>千人千面查排名 <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td>关键词权重查询 <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td>买家帐号深度分析 <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td>验号中心防P图 <span class="label label-badge label-danger">独家</span></td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td>直通车卡首屏VIP版</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr class="text-red">
+                                                            <td>直通车图下载VIP版</td>
+                                                            <td>免积分</td>
+                                                        </tr>                                                        
+                                                        <tr class="text-red">
+                                                            <td>卡类目淘口令</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>无线端查排名 <span class="label label-badge label-danger">new</span></td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>直通车图下载</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>卡首屏淘口令</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>卡同行淘口令</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>直通车卡条件</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘首页淘口令</td>
+                                                            <td>免积分</td>
+                                                        </tr>      
+                                                        <tr>
+                                                            <td>有好货</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘网红集合</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘清仓流量</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>中国质造</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>极有家</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手机钻展</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>淘抢购</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>每日好店</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>必买清单</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>亲宝贝</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>手淘ifashion</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>潮玩城</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>天天特价</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>淘词神器</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>天猫挖词</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>类目查询</td>
+                                                            <td>免积分</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <script type="text/javascript">
+
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+
+
+
+
+  },"json");
+
+
+}
+
+
+
+
+
+
+
+
+  },"json");
+  
+  </script>
+
+
+
+
+
+
+
+
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script> 
+    </body>
+</html>

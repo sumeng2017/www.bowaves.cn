@@ -1,0 +1,327 @@
+@media (max-width: 768px) {
+
+    .header {
+        position: absolute;
+    }
+
+    /*sidebar*/
+
+    .sidebar {
+        height: auto !important;
+        overflow: hidden;
+        position: absolute;
+        width: 70% !important;
+        padding-bottom: 0 !important;
+        z-index: 1001;
+    }
+
+
+    /* body container */
+    .main-content {
+        margin: 0px!important;
+        position: none !important;
+    }
+
+    /* sidebar */
+    .sidebar {
+        margin: 0px !important;
+    }
+
+    .header-search{
+        display: none;
+    }
+
+}
+
+body{
+    color: #797979;
+    background: #f7f7f7;
+    font-size: 14px;
+}
+a,a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.header{
+    min-height: 60px;
+    padding: 0 15px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+}
+.header-left{
+    float: left;
+    width: 240px;
+}
+.sidebar-toggle{
+    float: left;
+    padding-right: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.sidebar-toggle .icon{
+    font-size: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    color: #2e2e2e;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+.header-search{
+    float: left;
+    margin-top: 15px;
+    max-width: 200px;
+}
+.search-group{
+    width: 250px;
+    position: relative;
+}
+.search-group .form-control{
+    padding-left: 28px;
+    border-radius: 30px;
+    border-color: transparent; 
+    box-shadow: none;
+    outline: none;
+}
+.search-group .icon{
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    padding:7px 8px;
+    cursor: pointer;
+    color: #999;
+}
+
+.header-user{
+    float: right;
+}
+.header-user .item{
+    padding:15px 0;
+    float: left;
+    margin-left: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.header-user .item .icon{
+    font-size: 18px;
+    color: #999;
+}
+.header-user .item .badge{
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    right: -6px;
+    width: 8px;
+    height: 8px;
+}
+
+.header-user .avatar{
+    width: 30px;
+    height: 30px;
+}
+
+
+.sidebar{
+    width: 240px;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+    background: #2a3542;
+    padding-bottom: 15px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.sidebar-menu{
+    margin-top: 75px;
+}
+.sidebar-menu  > .item{
+    line-height: 12px !important;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.sidebar-menu  > .item > a{
+    color: #8b9199;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0 15px 10px;
+    font-size: 14px;
+    outline: none;
+}
+.sidebar-menu  > .item > a .icon{
+    font-size: 15px;
+    padding-right: 6px;
+}
+.sidebar-menu  > .item a .arrow{
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid #A0A0A0;
+    border-top: 4px solid transparent;
+    float: right;
+    height: 0;
+    margin-right: 10px;
+    margin-top: 6px;
+    width: 0;
+}
+.sidebar-menu .item.open a .arrow{
+    margin-top: 8px;
+    border-top: 5px solid #fff;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.sidebar-menu  > .item:hover,.sidebar-menu .item.active{
+    background: #35404d;
+    color: #fff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.sidebar-menu  > .item:hover .icon,.sidebar-menu .item.active .icon{
+    color: #4caf50;
+}
+.sidebar-menu  > .item:hover > a,.sidebar-menu  > .item.active > a{
+    color: #4caf50;
+}
+.sidebar-menu  > .item:hover .arrow,.sidebar-menu .item.active .arrow{
+    border-left-color: #fff;
+}
+.sidebar-menu .item.open .vertical-menu{
+    display: block;
+}
+.vertical-menu {
+    display: none;
+    border-radius: 4px;
+    background: #35404D;
+    font-size: 14px;
+}
+.vertical-menu > a{
+    display: block;
+    color: #8b9199;
+    padding-left: 32px;
+    line-height: 35px;
+}
+.vertical-menu:hover,.vertical-menu > a.active .icon{
+    color: #4caf50;
+}
+.vertical-menu > a:hover,.vertical-menu > a.active{
+    color: #4caf50;
+}
+
+.main-content{
+    padding-top: 60px;
+    margin-left: 240px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.wrapper{
+    padding: 15px;
+
+}
+.topbar{
+    height: 43px;
+    background: #fff;
+    border-bottom: solid 1px #e2e2e2;
+}
+
+.search{
+    color: #333;
+    padding-bottom: 15px;
+}
+input.text{
+    height: 24px;
+    width: 400px;
+    line-height: 22px;
+    border: solid 1px #ccc;
+    text-shadow: 0 1px 0 #fff;
+    color: #333;
+    padding-left: 4px;
+    overflow: hidden;
+    outline: none;
+}
+
+.btn-primary-outline {
+    padding: 2px 6px;
+    color: #43a047;
+    background-color: transparent;
+    border-color: #43a047;
+}
+.btn-primary-outline:hover{
+    outline: none;
+    border-color: #43a047;
+    text-shadow: none;
+    color: #fff;
+    background: #43a047;
+}
+.table .pager{
+    margin: 0;
+}
+
+h1, h2, h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel, .panel-group > .panel, .btn, .form-control, .input-group-addon ,.card{
+    border-radius: 4px;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.shadow:hover {
+    -webkit-box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.4);
+    -ms-box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    top: -15px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.panel > a {
+    color: #797979;
+}
+
+.panel > a:hover{
+    color: #4caf50;
+}
+
+form {
+    padding-bottom: 10px;
+}
+
+td,th {
+    text-align: center;
+    vertical-align: middle!important;
+}
+
+.modal-dialog {
+    border-radius: 6px;
+}
+
+.messager {
+    border-radius: 20px;
+}
+
+.label {
+    border-radius: .25em;
+    margin-right: 5px;
+    font-size: 90%;
+}

@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>类目卡位卡首条淘口令二维码-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}类目卡位卡首条生成的淘口令打开后会显示在该宝贝所在类目下的首条位置，点击打开宝贝之后，生意参谋实时访客记录的进店来源显示为【淘内免费其他】，据说现在这个类目入口权重仅次关键词搜索权重。" />
+        <meta name="keywords" content="类目卡位,类目卡首屏,类目卡位淘口令,类目卡首屏淘口令,怎么卡类目首条" />
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+    </head>
+
+    <body>
+{dede:include filename="head.htm"/}
+
+{dede:include filename="sidebar.htm"/}
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3><i class="icon icon-sitemap"></i> 类目卡位卡首条</h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+                                        <form class="layui-form" action="">
+                                            <div class="form-group">
+                                                <label for="item_url"><i class="icon icon-link"></i> 商品链接</label>
+                                                <input type="text" class="form-control" name="item_url" onchange="checktburl(this);" placeholder="请输入淘宝（天猫）的商品URL地址" lay-verify="required">
+                                            </div>
+<div id="vip">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">立即生成</button>
+											</div>	
+											</form>
+                                        <div>
+                                            <h4>类目卡位卡首条 功能说明:</h4>
+                                            <p class="with-padding hl-green">类目卡位卡首条生成的淘口令打开后会显示在该宝贝所在类目下的首条位置，点击打开宝贝之后，生意参谋实时访客记录的进店来源显示为【淘内免费其他】，据说现在这个类目入口权重仅次关键词搜索权重。每天补上几单，持续一周左右，会带动更多的【淘内免费其他】流量。</p>
+                                            <p> <i class="icon icon-info-sign"></i> 提示：此功能限VIP会员使用。</p>                                        </div>
+
+                                    </div>
+
+
+                                    <div id = "data" class="col-md-6">				 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     {dede:include filename="footer.htm"/} 
+                </div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script> 
+            <script>
+                                    
+					 $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","lmkp");
+
+if(data['M_Rank'] == 20){
+}
+else
+{
+
+$("#vip").html('<button type="button" class="btn btn-danger btn-lg btn-block">此功能需开通VIP权限，点击开通。</button>');
+
+
+
+
+}
+
+
+}
+  },"json");								
+													
+													
+													layui.use('form', function () {
+                                                        var form = layui.form();
+                                                        form.on('submit(lmkp)', function (data) {
+                                                            $.ajax({
+                                                                url: "/ajax/ajax_lmkp.php",
+                                                                data: data.field,
+                                                                type: "post",
+                                                                dataType: "json",
+                                                                success: function (res) {
+                                                                    //console.log(res);
+                                                                    if (res.err == '0') {
+                                                                        layer.msg('' + res.msg + '', {
+                                                                            time: 2000,
+                                                                        });
+                                                                        var item_url = $("input[name='item_url']").val();
+                                                                        var txt = '类目卡首条';
+                                                                        var res = res['data'];
+                                                                        var str = '<p class="with-padding bg-warning"><i class="icon icon-bell-alt"></i> 生成后的淘口令和二维码，请复制使用：</p> <div class="card"><div class="card-heading"> <a target="_blank" href="' + item_url + '">  <strong>' + res['title'] + '</strong>  </a> </div> <div class="card-content"> <div class="items"> <div class="item"> <div class="item-content"> <div class="media pull-left"> <img src="' + res['pic'] + '_120x120.jpg" title="' + res['title'] + '" style="width: 120px;"></div> <div class="text"> <p id="tkl"> 淘口令 <strong class="text-red">' + res['model'] + '</strong> <br>复制这条信息，打开👉手机淘宝 👈 点击排行<strong class="text-red">第1位</strong>的商品立即购买。</p> <div id="layer-qr"> <img layer-src="' + res['qr'] + '" layer-pid="" src="/img/qr.png" alt="手机淘宝扫一扫" layer-index="0"> </div> </div> </div> </div> </div> </div> <div class="card-actions"> <span class="label label-warning"> <i class="icon icon-tags"></i> ' + txt + '</span> <button type="button" class="btn btn-primary pull-right" data-clipboard-action="copy" data-clipboard-target="#tkl"> <i class="icon icon-paste"></i> 复制分享 </button> </div> </div>';
+                                                                        $("#data").html(str);
+                                                                        layer.photos({
+                                                                            photos: '#layer-qr'
+                                                                            , anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+                                                                        });
+                                                                        var clipboard = new Clipboard('.btn');
+                                                                        clipboard.on('success', function (e) {
+                                                                            layer.msg('复制成功！', {
+                                                                                time: 1000,
+                                                                            });
+                                                                            console.log(e);
+                                                                        });
+                                                                        clipboard.on('error', function (e) {
+                                                                            layer.msg('浏览器不支持，请手动复制。');
+                                                                            console.log(e);
+                                                                        });
+                                                                    } else {
+                                                                        layer.alert('' + res.msg + '', {
+                                                                            icon: 5
+                                                                        }, function (index) {
+                                                                            location.href = "pay.php"; //积分充值
+                                                                            layer.close(index);
+                                                                        });
+                                                                    }
+                                                                    ;
+                                                                },
+                                                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                                                    layer.closeAll(); //关闭所有层
+                                                                    layer.alert('查询失败！<br>请检查输入字段是否有误，或稍后再试。', {
+                                                                        icon: 5
+                                                                    });
+                                                                },
+                                                                beforeSend: function () {
+                                                                    layer.msg('开始查询，请耐心等待...', {
+                                                                        time: 500
+                                                                    }, function () {
+                                                                        // layer.load();
+                                                                    });
+                                                                },
+                                                                complete: function () {
+                                                                    layer.closeAll('loading'); //完成后关闭load层
+                                                                }
+                                                            });
+                                                            return false;
+                                                        });
+                                                    });
+            </script>
+    </body>
+</html>

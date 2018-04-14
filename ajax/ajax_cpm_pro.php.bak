@@ -1,0 +1,113 @@
+<?php
+
+$class = dirname(__FILE__) . '/class.php'; 
+
+require_once($class);
+
+$url2 = "http://shengyicanmou.com/key_qz.php"; 
+$content = get_content($url2, $cookie); 
+
+$mod=$_POST['mod'];
+
+if($mod=="id"){
+
+$so=$_POST['so'];
+$sort=$_POST['sort'];
+$page=$_POST['page'];
+$buyer_ww=$_POST['buyer_ww'];
+$key=$_POST['key'];
+$id=$_POST['id'];
+
+$post_data = array(
+         "so" => $so,
+         "mod" => $mod,
+		 "sort" => $sort,
+		 "page" => $page,
+		 "buyer_ww" => $buyer_ww,
+		"key" => $key,
+		"id" => $id
+       );
+
+
+}else if($mod=="shop"){
+
+$so=$_POST['so'];
+$sort=$_POST['sort'];
+$page=$_POST['page'];
+$serv=$_POST['serv'];
+$key=$_POST['key'];
+$shop_nick=$_POST['shop_nick'];
+
+$post_data = array(
+         "so" => $so,
+         "mod" => $mod,
+		 "sort" => $sort,
+		 "page" => $page,
+		 "serv" => $serv,
+		"key" => $key,
+		"shop_nick" => $shop_nick
+       );
+
+}else if($mod=="all"){
+
+$so=$_POST['so'];
+$sort=$_POST['sort'];
+$page=$_POST['page'];
+$serv=$_POST['serv'];
+$key=$_POST['key'];
+
+
+$post_data = array(
+         "so" => $so,
+         "mod" => $mod,
+		 "sort" => $sort,
+		 "page" => $page,
+		 "serv" => $serv,
+		"key" => $key
+		
+       );
+
+}
+
+
+$header = array();
+$header[] = 'Host:shengyicanmou.com';
+$header[] = 'Origin:http://shengyicanmou.com';
+$header[] = 'Referer:http://shengyicanmou.com/ajax_cpm_pro.php';
+$header[] = 'Cookie:PHPSESSID=sapks35nehlgitj4o1uvjjfv53; user=1; 1150273798=1; Hm_lvt_75cd9b0d9743152ec049eba54f506315=1517750418; Hm_lpvt_75cd9b0d9743152ec049eba54f506315=1517753311';
+$header[] = 'User-Agent:Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36';
+
+    // 判断是否支持CURL
+if (!function_exists('curl_init') || !function_exists('curl_exec')) {
+        exit('您的主机不支持Curl，请开启~');
+}
+
+
+
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL,"http://shengyicanmou.com/ajax/ajax_cpm_pro.php");
+    curl_setopt($curl, CURLOPT_AUTOREFERER, 1);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+	 curl_setopt($curl, CURLOPT_POST, 1);
+  curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($curl, CURLOPT_HEADER, 0);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); 
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); 
+	curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+
+    $data = curl_exec($curl);
+    curl_close($curl);
+    
+
+print_r($data);
+
+
+
+
+
+
+
+
+?>

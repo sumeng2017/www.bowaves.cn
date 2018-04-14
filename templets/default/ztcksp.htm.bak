@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>直通车卡首屏淘口令(VIP版) 成功率99%-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}真正的直通车卡首屏淘口令成功率99%，提交商品链接和直通车关键词之后自动匹配人群标签，生成直通车淘口令,淘口令直通车,直通车卡首屏淘口令,直通车卡首条,词口令直通车,淘口令卡直通车首页。" />
+        <meta name="keywords" content="直通车卡首屏,直通车淘口令,淘口令直通车,直通车卡首屏淘口令,直通车卡首条,词口令直通车,淘口令卡直通车首页" />
+                <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+    </head>
+
+    <body>
+{dede:include filename="head.htm"/}
+
+{dede:include filename="sidebar.htm"/}        
+
+<div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3><i class="icon icon-bullseye"></i> 直通车卡首屏淘口令(VIP版) 成功率99%</h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+                                        <div class="alert alert-warning with-icon alert-dismissable">
+                                            <i class="icon-info-sign"></i>
+                                            <div class="content"><h4>直通车卡首屏操作指南：</h4><p>在使用直通车卡首屏淘口令之前，先确认你已经开通了淘宝直通车。并确认你的商品链接和关键词是否匹配，如果卡不出来，可调整人群标签数量，另外大词出价太低也有可能卡不出来，小词的出价可以低些。按此操作1~2天快速提升直通车计划权重，10分不难。</p></div>
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        </div>
+                                        <form class="layui-form" action="">
+                                            <div class="form-group">
+                                                <label for="item_url"> <i class="icon icon-link"></i>
+                                                    商品链接
+                                                </label>
+                                                <input type="text" class="form-control" onchange="checkiid(this);" name="item_url" autocomplete="off" placeholder="请输入宝贝链接" lay-verify="required">
+                                                                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Keyword"> <i class="icon icon-key"></i>
+                                                    直通车卡屏关键词
+                                                </label>
+                                                <input id="sKeyword" type="text" class="form-control" onchange="checkztckey(this);" name="Keyword" placeholder="请输入直通车关键词" lay-verify="required">						 			
+
+                                                <div class="help-block" id="kwsinfo">  
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Keyword"> <i class="icon icon-tags"></i>
+                                                    商品标签数设置
+                                                </label>
+                                                <input id="get_num" type="number" class="form-control" name="get_num" placeholder="请输入商品标签数" lay-verify="required">						 			
+                                                <div class="help-block" id="taginfo"></div>                                            </div>
+
+<div id="vip">
+
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">立即生成</button>    
+											
+											</div>
+											</form>
+                                        <div>
+                                            <h4>直通车卡首屏淘口令(VIP版) 成功率99% 功能说明:</h4>
+                                            <p class="with-padding hl-green">通俗来讲直通车卡首屏就是把你的直通车车位卡在首屏位置方便刷手找到进行操作，从而提升直通车的权重。正常情况下由于选词和出价等其它因素影响，搜索关键词时找不到你的车位，就可以用此功能帮助直通车车位卡首屏。</p>						 			
+                                        </div>
+                                      
+							 				                                    </div>
+
+
+                                    <div id = "data" class="col-md-6"></div>                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                  
+
+   {dede:include filename="footer.htm"/} 
+
+
+                </div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script>       
+			
+			
+			
+			
+						<script>
+
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","ztcksp");
+
+if(data['M_Rank'] == 20){
+}
+else
+{
+
+$("#vip").html('<button type="button" class="btn btn-danger btn-lg btn-block">此功能需开通VIP权限，点击开通。</button>');
+
+
+
+
+}
+
+
+}
+  },"json");
+			
+			
+			
+			
+			
+			
+			<script type="text/javascript">
+                                                    vip_qq = 709600600;
+            </script>
+    </body>
+</html>

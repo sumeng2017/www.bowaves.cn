@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>直通车神图下载-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}精准查找直通车图，只需要输入对手的直通车宝贝链接和直通车关键词，即可查出对手使用的创意图。" />
+        <meta name="keywords" content="直通车图下载,查找直通车创意图,怎么查直通车图" />
+        <link href="/static/layui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/datatable.css" >
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+        <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+
+        <script language="javascript">
+            function showimg(e, sUrl) {
+                var x, y;
+                x = e.clientX;
+                y = e.clientY;
+                document.getElementById("shoppic").style.left = x + 10 + 'px';
+                document.getElementById("shoppic").style.top = y + 10 + 'px';
+                document.getElementById("shoppic").innerHTML = "<img style=\"border: 5px solid #fff\" src=\"" + sUrl + "\">";
+                document.getElementById("shoppic").style.display = "";
+            }
+            function hiddenPic() {
+                document.getElementById("shoppic").innerHTML = "";
+                document.getElementById("shoppic").style.display = "none";
+            }
+        </script>
+    </head>
+
+    <body>
+
+{dede:include filename="head.htm"/}
+
+
+
+{dede:include filename="sidebar.htm"/}
+
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3> <i class="icon icon-picture"></i>
+                                        直通车神图下载</h3>
+                                    <hr>
+
+                                    <div class="col-md-5">
+
+                                        <form class="layui-form" action="">
+                                            <label for=""> <i class="icon icon-picture"></i> 模糊查找直通车图</label>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">直通车关键词</span>
+                                                    <input type="text" class="form-control" name="ztckw" placeholder="请输入你要查找的直通车关键词" lay-verify="required">	
+
+                                                    <span class="input-group-addon fix-border">起始页</span>
+                                                    <input type="number" class="form-control" name="start_page" placeholder="请输入起始页" lay-verify="required" min="1" max="10" value="1">
+
+                                                    <span class="input-group-addon fix-border">结束页</span>
+                                                    <input type="number" class="form-control" name="end_page" placeholder="请输入结束页" lay-verify="required" min="2" max="99" value="3">
+                                                </div>
+
+                                                <div class="layui-form">
+                                                    <div style="margin: 20px 10px;">
+                                                        <input type="radio" name = "channel" value="m" lay-skin="primary" title="来源【移动端】" checked="">							
+                                                        <input type="radio" name = "channel" value="re" lay-skin="primary" title="来源【淘宝热卖】">							
+                                                        <input type="radio" name = "channel" value="pc" lay-skin="primary" title="来源【PC端】">
+                                                    </div>
+                                                </div>
+                                                <div class="help-block" id="opinfo"></div>
+                                            </div>
+
+                                            <button type="submit" id="ljzt" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">立即采集</button>                                        </form>
+                                        <div>
+                                            <h4>
+                                                直通车神图下载功能说明:</h4>
+                                            <p class="with-padding hl-green">创意图点击率不高？想看看别人的高点击车位图是什么样的？输入你直通车的关键词，立即显示竞争对手的直通车车图，选一个神图让美工小妹照做一个。</p>
+                                             <p> <i class="icon icon-info-sign"></i> 提示：使用此功能需消耗 {dede:global.ksp/}个 积分。VIP免积分使用！</p>                                       </div>
+
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-5">
+                                        <form class="layui-form" action="">
+                                            <label for="" class="text-red"> <i class="icon icon-picture"></i> 精准查找直通车图 <span class="label label-badge label-danger">VIP</span></label>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">直通车宝贝链接</span>
+                                                    <input type="text" class="form-control" name="ztcurl" placeholder="请输入直通车宝贝链接" lay-verify="required|ur">	
+                                                </div>
+                                                <div class="input-group" style="margin: 20px 0px;">
+                                                    <span class="input-group-addon">搜索宝贝关键词</span>
+                                                    <input type="text" class="form-control" name="ztckw" placeholder="请输入直通车宝贝关键词" lay-verify="required">	
+                                                </div>
+                                                <div class="help-block" id="opinfo"></div>
+                                            </div>
+
+                                            <button type="submit" id="jqzt" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">精准找图</button>
+                                        </form>
+                                        <div>
+                                            <h4>
+                                                直通车神图下载功能说明:</h4>
+                                            <p class="with-padding hl-green">精准查找直通车图，只需要输入对手的直通车宝贝链接和直通车关键词，即可查出对手使用的创意图。</p>
+                                            <p> <i class="icon icon-info-sign"></i> 提示：此功能限VIP会员使用。</p>                                        </div>
+
+                                    </div>
+                                    <div id = "data" class="col-md-12">
+                                    </div>
+                                    <div id="shoppic" style="display: none; position: fixed; z-index: 100;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+				  
+  {dede:include filename="footer.htm"/} 
+				  
+				  </div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+            <!-- DataTables -->
+            <script src="//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables.js"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script> 
+            <script>
+
+ $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","ztctu");
+
+}
+  },"json");
+
+            layui.use('form', function () {
+                var form = layui.form();
+                var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+
+                form.on('submit(ztctu)', function (data) {
+                    // console.log(data.field.channel);
+                    $.ajax({
+                        url: "/ajax/ajax_ztctu.php",
+                        data: data.field,
+                        type: "post",
+                        dataType: "json",
+                        success: function (res) {
+                            if (res.err == '1') {
+                                layer.msg('查询失败，请重试！', {time: 2000, });
+                                return false;
+                            }
+                            if (res.msg == 'yes') {
+                                if (res.fastPostFee < '1') {
+                                    var yf = '<span class="label label-badge label-warning">包邮</span>';
+                                } else {
+                                    var yf = '<span class="label label-badge label-warning">运费：' + res.fastPostFee + '</span>';
+                                }
+                                if (res.ismall == '1') {
+                                    var icon = '<img src="//img.alicdn.com/tps/i4/T1AVx3XANdXXb.cabb-23-18.png" border="0" align="absmiddle">';
+                                } else {
+                                    var icon = '';
+                                }
+                                var str = '<div class="col-md-5 col-md-offset-7"> <p class="with-padding bg-warning"> <i class="icon icon-bell-alt"></i> 直通车图已采集完成，请勿直接使用。</p> <div class="card"> <div class="card-heading"></div> <div class="card-content"> <div class="items"> <div class="item"> <div class="item-content"> <div class="media pull-left" id="layer-img"><img layer-src="' + res.pic + '" layer-pid="" src="' + res.pic + '_120x120.jpg" alt="' + res.title + '" title="点击查看直通车大图" layer-index="0" style="width: 120px;"></div> <div class="text"> <p>' + icon + '  <strong>' + res.title + '</strong> <br></p> <p><span class="label label-badge label-danger">￥' + res.price + '</span>' + yf + ' ' + res.sale + '人付款</p> <p>' + res.nick + ' ' + res.loc + '</p> </div> </div> </div> </div> </div> <div class="card-actions"> <span class="label label-warning"> <i class="icon icon-tags"></i> 直通车创意图</span> <a class="pull-right" href="' + res.pic + '" download="' + res.id + '.jpg"> <button type="button" class="btn btn-primary pull-right"><i class="icon icon-cloud-download"></i> 点击下载</button> </a> </div> </div> </div>';
+                                $("#data").html(str);
+                                layer.photos({
+                                    photos: '#layer-img'
+                                    , anim: 5
+                                });
+                                return false;
+                            }
+
+                            var length = res.goodsdata.length;
+                            // console.log(res);
+                            layer.msg('采集完成！共' + length + '个车图。', {time: 2000, });
+
+                            var start_page = data.field.start_page;
+                            var end_page = data.field.end_page;
+                            var page_unm = end_page - start_page + 1;
+
+                            var channel = data.field.channel;
+
+                            switch (channel) {
+                                case 'm':
+                                    channel = '移动端';
+                                    break;
+                                case 're':
+                                    channel = '淘宝热卖';
+                                    break;
+                                case 'pc':
+                                    channel = 'PC端';
+                                    break;
+                            }
+                            ;
+                            // console.log(channel);
+
+                            var str = '<div class="site-title"><p style="font-size: 1.3em;font-weight: bold;color: #FF5722;">查询' + page_unm + '页，已采集到' + channel + '直通车车图(' + length + '个)</p></div>' + '<table id="showinfo" class="table-box table-sort dataTable">' + '<colgroup>' + '<col width="">' + '<col width="">' + '<col>' + '</colgroup>' + '<thead>' + '<tr>' + '<th>序号</th>' + '<th>车图</th>' + '<th>车位</th>' + '<th>直通车标题</th>' + '<th>价格</th>' + '<th>销量</th>' + '<th>发货地</th>' + '<th>店铺旺旺</th>' + '</tr> ' + '</thead>' + '<tbody>';
+
+                            for (var i = 0; i < length; i++) {
+                                var name = res.goodsdata[i]['title'];
+                                var thumb = res.goodsdata[i]['pic'];
+
+                                var thumbimg = '' + thumb + '_300x300.jpg';
+                                var ztcimg = '' + thumb + '_50x50.jpg';
+                                var price = res.goodsdata[i]['price'];
+                                var id = res.goodsdata[i]['id'];
+                                var url = res.goodsdata[i]['url'];
+
+                                var nick = res.goodsdata[i]['nick'];
+                                var sale = res.goodsdata[i]['sale'];
+                                var rank = res.goodsdata[i]['rank'];
+                                var loc = res.goodsdata[i]['loc'];
+                                var isB2c = res.goodsdata[i]['isB2c'];
+                                var nameinfo = "<a target=\"_blank\" href=\"" + url + "\" onmouseout=\"hiddenPic();\" onmousemove=\"showimg(event,'" + thumbimg + "');\">" + name + "</a>";
+
+                                // <img layer-src="' + thumb + '" layer-pid="" src="' + ztcimg + '" alt="'+name+'" layer-index="0">
+                                str += '<tr>' + '<td>' + (i + 1) + '</td>' + '<td><img layer-src="' + thumb + '" layer-pid="" src="' + ztcimg + '" alt="' + name + '" layer-index="0" onmouseout="hiddenPic();" onmousemove="showimg(event,\'' + thumbimg + '\');"></td>' + '<td>' + rank + '</td>' + '<td>' + nameinfo + '</td>' + '<td>¥' + price + '</td>' + '<td>' + sale + '</td>' + '<td>' + loc + '</td>' + '<td>' + nick + '</td>' + '</tr>'
+                            }
+                            str += '</tbody>' + '</table>';
+
+                            $("#data").html(str);
+
+                            layer.photos({
+                                photos: '#data'
+                                , anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+                            });
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            layer.closeAll(); //关闭所有层
+                            layer.alert('查询失败！<br>请检查输入字段是否有误，或稍后再试。', {
+                                icon: 5
+                            });
+                        },
+                        beforeSend: function () {
+                            layer.msg('开始查询，请耐心等待...', {
+                                time: 500
+                            }, function () {
+                                layer.load();
+                            });
+                        },
+                        complete: function () {
+                            layer.closeAll('loading');  //完成后关闭load层
+
+                            /**
+                             * 渲染数据
+                             */
+                            var lang = {
+                                "sProcessing": "处理中...",
+                                "sLengthMenu": "每页 _MENU_ 项",
+                                "sZeroRecords": "没有匹配结果",
+                                "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
+                                "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
+                                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                                "sInfoPostFix": "",
+                                "sSearch": "本地搜索：",
+                                "sUrl": "",
+                                "sEmptyTable": "暂无数据",
+                                "sLoadingRecords": "载入中...",
+                                "sInfoThousands": ",",
+                                "oPaginate": {
+                                    "sFirst": "首页",
+                                    "sPrevious": "上页",
+                                    "sNext": "下页",
+                                    "sLast": "末页",
+                                    "sJump": "跳转"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": 以升序排列此列",
+                                    "sSortDescending": ": 以降序排列此列"
+                                }
+                            };
+
+                            $('#showinfo').dataTable({
+                                "language": lang, //提示信息
+                                "autoWidth": false, //自适应宽度，
+                                "iDisplayLength": 20, //每页显示X条记录 
+                                "lengthMenu": [20, 40, 60],
+                                "stripeClasses": ["odd", "even"], //为奇偶行加上样式，兼容不支持CSS伪类的场合
+                                "searching": true, //是否允许Datatables开启本地搜索
+                                "paging": true, //是否开启本地分页
+                                "lengthChange": true, //是否允许产品改变表格每页显示的记录数
+                                "info": true, //控制是否显示表格左下角的信息
+                                //跟数组下标一样，第一列从0开始，这里表格初始化时，第四列默认降序
+                                "order": [0, 'asc'], //asc升序   desc降序 
+                                "aoColumnDefs": [{
+                                        "orderable": false,
+                                        "aTargets": [1, 3] // 指定列不参与排序
+                                    }],
+
+                                "deferRender": true, //延迟渲染
+                                // "bStateSave": true, //状态保存
+                                "bDestroy": true, //清除旧数据对象
+                            });
+
+                        }
+                    });
+
+                    return false;
+                });
+
+            });
+            </script>
+    </body>
+</html>

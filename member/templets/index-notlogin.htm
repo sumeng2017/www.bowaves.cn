@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> 登录</title>
+		<link rel="stylesheet" href="/static/zui.min.css" />
+		<link rel="stylesheet" href="/static/zui-theme-green.css" />
+		<link rel="stylesheet" href="/static/bootstrapValidator.min.css">
+
+		<script type="text/javascript" src="/static/jquery.js"></script>
+		<script type="text/javascript" src="/static/layer.js"></script>
+		<script src="/static/bootstrap.min.js"></script>
+		<script src="/static/bootstrapValidator.min.js"></script>
+		<style>
+			.kbox{
+				padding: 10px 20px;
+				margin: 10px 20px;
+			}
+			body{
+				background: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="kbox">
+			<form id="loginForm" class="form-horizontal" method="post" action='index_do.php'>
+
+   <input type="hidden" name="fmdo" value="login">
+      <input type="hidden" name="dopost" value="login">
+      <input type="hidden" name="gourl" value="<?php if(!empty($gourl)) echo $gourl;?>">
+
+				<div class="form-group">
+					<label class="col-md-2 control-label"><i class="icon icon-user"></i> 用户名：</label>
+					<div class="col-md-9">
+						<input type="text" name="userid" class="form-control" placeholder="用户名" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label"><i class="icon icon-lock"></i> 密码：</label>
+					<div class="col-md-9">
+						<input type="password" name="pwd" class="form-control" placeholder="密码" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-9 col-md-offset-2">
+						<button type="submit" name="btn-login" class="btn btn-lg btn-block btn-primary"><i class="icon icon-check-circle"></i> 登 录</button>
+						<div class="pull-right" style="margin-top: 15px;"><a href="index_do.php?fmdo=user&dopost=regnew" style="line-height: 32px;">没有帐号？立即注册 <i class="icon icon-arrow-right"></i></a></div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+		    $('#loginForm').bootstrapValidator({
+		            message: 'This value is not valid',
+		            feedbackIcons: {/*输入框不同状态，显示图片的样式*/
+		                valid: 'glyphicon glyphicon-ok',
+		                invalid: 'glyphicon glyphicon-remove',
+		                validating: 'glyphicon glyphicon-refresh'
+		            },
+		            fields: {/*验证*/
+		                username: {/*键名username和input name值对应*/
+		                    message: '用户名非法',
+		                    validators: {
+		                        notEmpty: {/*非空提示*/
+		                            message: '用户名不能为空'
+		                        },
+
+		                        regexp:{
+		                            regexp:/^[a-zA-Z0-9_\.]+$/,
+		                            message:'用户名由数字、字母下划线和.组成'
+		                        },
+
+
+		                        stringLength: {/*长度提示*/
+		                            min: 5,
+		                            max: 20,
+		                            message: '用户名长度必须在%s到%s之间'
+		                        }/*最后一个没有逗号*/
+		                    }
+		                },
+		                password: {
+		                    message:'密码无效',
+		                    validators: {
+		                        notEmpty: {
+		                            message: '密码不能为空'
+		                        },
+		                        stringLength: {
+		                            min: 6,
+		                            max: 12,
+		                            message: '密码长度必须在%s到%s之间'
+		                        },
+		                        regexp: {
+		                        regexp: /^[a-zA-Z0-9]+$/,
+		                        message: '密码只能由字母、数字组成~'
+		                    }
+		                    }
+		                }
+		            }
+		        });
+		});
+		</script>
+
+		<script type="text/javascript">
+			$("#loginForm").keydown(function(e){
+			 var e = e || event,
+			 keycode = e.which || e.keyCode;
+			 if (keycode==13) {
+			 $(".btn").trigger("click");
+			 }
+			});
+		</script>
+	</body>
+</html>
+

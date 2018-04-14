@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>手淘首页流量入口生成-{dede:global.cfg_webname/}</title>
+        <meta name="description" content="{dede:global.cfg_webname/}手淘首页的主要流量来源是手淘首页的“猜你喜欢”,手淘首页流量入口淘口令,生成手淘首页所有类目淘口令直接进入宝贝详情，刷收藏率和加购率可提升手淘首页宝贝展现权重。" />
+        <meta name="keywords" content="手淘首页淘口令,手淘首页流量,手淘首页入口" />
+        <link rel="stylesheet" type="text/css" href="/static/zui.css">
+        <link rel="stylesheet" type="text/css" href="/static/zui-theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery.js"></script>
+        <script type="text/javascript" src="/static/zui.js"></script>
+    </head>
+
+    <body>
+{dede:include filename="head.htm"/}
+
+{dede:include filename="sidebar.htm"/}
+            <div id="home" class="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <h3><i class="icon icon-arrow-up"></i> 手淘首页流量入口生成</h3>
+                                    <hr>
+
+                                    <div class="col-md-6">
+                                        <form class="layui-form" action="">
+                                            <div class="form-group">
+                                                <label for="item_url"><i class="icon icon-link"></i> 商品链接</label>
+                                                <input type="text" class="form-control" name="item_url" onchange="checktburl(this);" placeholder="请输入淘宝（天猫）的商品URL地址" lay-verify="required">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" lay-submit="" lay-filter="*">立即生成</button>                                        </form>
+                                        <div>
+                                            <h4>手淘首页流量入口生成 功能说明:</h4>
+                                            <p class="with-padding hl-green">手淘首页的主要流量来源是手淘首页的“猜你喜欢”，猜你喜欢的构成是淘宝的个性化推荐，包含免费推荐及付费推荐。此功能可以帮助你快速得到手淘首页的流量来源。</p>
+                                            <p> <i class="icon icon-info-sign"></i> 提示：使用此功能需消耗 {dede:global.tly/}个 积分。VIP免积分使用！</p>                                        </div>
+
+                                    </div>
+
+
+                                    <div id = "data" class="col-md-6">				 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+  {dede:include filename="footer.htm"/} 
+                </div>
+            </div>
+            <script src="/static/layui.js" type="text/javascript"></script>
+            <script src="/static/clipboard.min.js" type="text/javascript"></script>
+            <script src="/static/admin.min.js" type="text/javascript"></script>   
+			
+		      <script>
+                                    
+					 $.get("/Service/AjaxService.php?ac=GetUser", function(data){
+
+if(data['userid']==""){
+
+}else{
+
+$(".btn-primary").attr("lay-filter","stsy");
+
+}
+  },"json");		
+		</script>	
+			
+			</body>
+</html>
